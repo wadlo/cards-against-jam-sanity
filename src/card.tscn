@@ -7,6 +7,7 @@
 size = Vector2(175, 293)
 
 [node name="Card" type="Area2D" groups=["card"]]
+z_index = 1
 script = ExtResource("1_upmxa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8klurdrb6qpt"]
+
+[ext_resource type="Script" path="res://opponent_stats.gd" id="1_svppc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w11ea"]
+font_size = 32
+
+[node name="OpponentStats" type="VBoxContainer"]
+offset_left = 178.0
+offset_top = -372.0
+offset_right = 413.0
+offset_bottom = -262.0
+script = ExtResource("1_svppc")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Ferdinand"
+label_settings = SubResource("LabelSettings_w11ea")
+
+[node name="Anger" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Anger"]
+layout_mode = 2
+text = "Anger"
+
+[node name="ProgressBar" type="ProgressBar" parent="Anger"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Relationship" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Relationship"]
+layout_mode = 2
+text = "Relationship"
+
+[node name="ProgressBar" type="ProgressBar" parent="Relationship"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
