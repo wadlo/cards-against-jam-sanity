@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d1drfc4ibxgbf"]
+
+[ext_resource type="Texture2D" uid="uid://rsukxh5210wq" path="res://Graphics/BreadCard.png" id="1_7nb2s"]
+[ext_resource type="Script" path="res://CardGameLogic/CardConfig.cs" id="1_j0gym"]
+
+[resource]
+script = ExtResource("1_j0gym")
+cardType = 1
+cardName = "Bread"
+cardDescription = "Bread and butter is not as good as bread and more bread"
+cardImage = ExtResource("1_7nb2s")

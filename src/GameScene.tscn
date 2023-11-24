@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=11 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cx4sdt1jf4fgk" path="res://Cards/JamCard.tres" id="4_8hidv"]
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
 [ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="5_ox7ms"]
+[ext_resource type="Resource" uid="uid://d1drfc4ibxgbf" path="res://Cards/BreadCard.tres" id="5_x07ns"]
 [ext_resource type="PackedScene" uid="uid://c8klurdrb6qpt" path="res://opponent_stats.tscn" id="6_20vrj"]
 [ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
 [ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
@@ -52,7 +53,7 @@ relationship = 0.0
 
 [node name="PlayerState" type="Node" parent="Player" node_paths=PackedStringArray("handVisuals")]
 script = ExtResource("7_7hidr")
-cardsInHand = Array[Resource]([ExtResource("4_8hidv"), ExtResource("4_8hidv")])
+cardsInHand = Array[Resource]([ExtResource("4_8hidv"), ExtResource("5_x07ns")])
 handVisuals = NodePath("../PlayerHand/HandVisuals")
 cardPackedScene = ExtResource("8_b63ea")
 

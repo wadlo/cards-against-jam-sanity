@@ -22,5 +22,5 @@ public partial class CardConfig : Resource
     public string cardDescription;
 
     [Export]
-    public Image cardImage;
+    public Texture2D cardImage;
 }

@@ -37,6 +37,7 @@ public partial class PlayerState : Node
         {
             Node2D instantiatedCard = (Node2D)cardPackedScene.Instantiate();
             handVisuals.AddChild(instantiatedCard);
+            instantiatedCard.GetChild<Sprite2D>(0).Texture = card.cardImage;
         }
     }
 }
