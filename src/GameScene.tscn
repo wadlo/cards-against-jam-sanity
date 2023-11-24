@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=6 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
-[ext_resource type="PackedScene" uid="uid://bjdqiiodvrwgm" path="res://hand.tscn" id="3_cbrg8"]
+[ext_resource type="PackedScene" path="res://hand.tscn" id="3_cbrg8"]
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
+[ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="5_ox7ms"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -100)
 zoom = Vector2(0.715, 0.715)
 
 [node name="Table" type="Sprite2D" parent="."]
@@ -30,6 +32,17 @@ position = Vector2(-3, 166)
 
 [node name="DwarfNeutral" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-5, -226)
-scale = Vector2(0.263389, 0.31445)
+position = Vector2(12, -213)
+scale = Vector2(0.199789, 0.238521)
 texture = ExtResource("4_mdx6l")
+
+[node name="ElfNeutral" type="Sprite2D" parent="."]
+position = Vector2(418, -61)
+scale = Vector2(0.270854, 0.270854)
+texture = ExtResource("5_ox7ms")
+
+[node name="ElfNeutral2" type="Sprite2D" parent="."]
+modulate = Color(0.458824, 0.882353, 0.458824, 1)
+position = Vector2(-376, -52.9457)
+scale = Vector2(-0.253428, 0.224147)
+texture = ExtResource("5_ox7ms")
