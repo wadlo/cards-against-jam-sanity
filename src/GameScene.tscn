@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=13 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
 [ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
 [ext_resource type="Script" path="res://PlayedCards.cs" id="9_4cmec"]
+[ext_resource type="Script" path="res://HoveredDescription.cs" id="12_pfir4"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -130,3 +131,30 @@ script = ExtResource("7_7hidr")
 position = Vector2(-226, 1)
 script = ExtResource("9_4cmec")
 playerState = NodePath("../ConstructState")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 889.0
+offset_top = 465.0
+offset_right = 1141.0
+offset_bottom = 635.0
+color = Color(0, 0, 0, 0.243137)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -71.0
+offset_right = 113.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("12_pfir4")

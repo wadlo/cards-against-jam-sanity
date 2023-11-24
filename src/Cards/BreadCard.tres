@@ -7,5 +7,5 @@
 script = ExtResource("1_j0gym")
 cardType = 1
 cardName = "Bread"
-cardDescription = "Bread and butter is not as good as bread and more bread"
+cardDescription = "Grants 5 points for every pair"
 cardImage = ExtResource("1_7nb2s")

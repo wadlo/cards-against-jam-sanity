@@ -7,7 +7,7 @@ public partial class CardComponent : Area2D
     Vector2 startScale;
     float defaultYPos;
 
-    CardConfig config;
+    public CardConfig config;
 
     public static HashSet<CardComponent> hoveredCards = new HashSet<CardComponent>();
 
@@ -18,14 +18,14 @@ public partial class CardComponent : Area2D
         defaultYPos = Position.Y;
     }
 
-    public CardComponent GetClosestHoveredCardToMouse()
+    public static CardComponent GetClosestHoveredCardToMouse(Viewport viewport)
     {
         float bestSquareDist = float.MaxValue;
         CardComponent bestOption = null;
         foreach (CardComponent cardComponent in hoveredCards)
         {
             float currSquareDist = (
-                GetViewport().GetMousePosition() - cardComponent.Position
+                viewport.GetMousePosition() - cardComponent.Position
             ).LengthSquared();
             if (currSquareDist < bestSquareDist)
             {
@@ -48,7 +48,7 @@ public partial class CardComponent : Area2D
 
     public bool IsMostHoveredCard()
     {
-        return hoveredCards.Contains(this) && GetClosestHoveredCardToMouse() == this;
+        return hoveredCards.Contains(this) && GetClosestHoveredCardToMouse(GetViewport()) == this;
     }
 
     public override void _Process(double delta)

@@ -26,7 +26,8 @@ public partial class PlayedCards : Node2D
         for (int i = 0; i < playerState.cardsLaidDown.Count; i++)
         {
             CardConfig cardConfig = playerState.cardsLaidDown[i];
-            Node2D instantiated = (Node2D)playerState.cardPackedScene.Instantiate();
+            CardComponent instantiated = (CardComponent)playerState.cardPackedScene.Instantiate();
+            instantiated.config = cardConfig;
 
             AddChild(instantiated);
             instantiated.Position = new Vector2(

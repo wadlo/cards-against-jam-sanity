@@ -11,13 +11,13 @@ public class CalculatePoints
         {
             if (card.cardType == CardConfig.CardType.Jelly)
             {
-                points += 3;
+                points += 4;
             }
             if (card.cardType == CardConfig.CardType.Bread)
             {
                 if (hasBread)
                 {
-                    points += 3;
+                    points += 5;
                     hasBread = false;
                 }
                 else
