@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=16 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
+[ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
+[ext_resource type="Resource" uid="uid://dfvkwne4u7yg5" path="res://Cards/CardList.tres" id="2_rf72d"]
 [ext_resource type="PackedScene" uid="uid://bjdqiiodvrwgm" path="res://hand.tscn" id="3_cbrg8"]
 [ext_resource type="Resource" uid="uid://cx4sdt1jf4fgk" path="res://Cards/JamCard.tres" id="4_8hidv"]
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
@@ -15,6 +17,12 @@
 [ext_resource type="Script" path="res://HoveredDescription.cs" id="12_pfir4"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="RoundController" type="Node" parent="." node_paths=PackedStringArray("player", "computers")]
+script = ExtResource("1_cmhrf")
+player = NodePath("../Player/PlayerState")
+computers = [NodePath("../Dwarf/DwarfState"), NodePath("../Elf/ElfState"), NodePath("../Construct/ConstructState")]
+cardList = ExtResource("2_rf72d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 14)

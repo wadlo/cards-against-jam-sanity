@@ -28,6 +28,7 @@ public partial class PlayedCards : Node2D
             CardConfig cardConfig = playerState.cardsLaidDown[i];
             CardComponent instantiated = (CardComponent)playerState.cardPackedScene.Instantiate();
             instantiated.config = cardConfig;
+            instantiated.GetChild<Sprite2D>(0).Texture = cardConfig.cardImage;
 
             AddChild(instantiated);
             instantiated.Position = new Vector2(

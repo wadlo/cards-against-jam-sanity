@@ -36,16 +36,19 @@ public partial class PlayerState : Node
 
     public void RefreshVisuals()
     {
-        foreach (Node node in handVisuals.GetChildren())
+        if (handVisuals != null)
         {
-            node.QueueFree();
-        }
-        foreach (CardConfig card in cardsInHand)
-        {
-            Node2D instantiatedCard = (Node2D)cardPackedScene.Instantiate();
-            instantiatedCard.Set("config", card);
-            handVisuals.AddChild(instantiatedCard);
-            instantiatedCard.GetChild<Sprite2D>(0).Texture = card.cardImage;
+            foreach (Node node in handVisuals.GetChildren())
+            {
+                node.QueueFree();
+            }
+            foreach (CardConfig card in cardsInHand)
+            {
+                Node2D instantiatedCard = (Node2D)cardPackedScene.Instantiate();
+                instantiatedCard.Set("config", card);
+                handVisuals.AddChild(instantiatedCard);
+                instantiatedCard.GetChild<Sprite2D>(0).Texture = card.cardImage;
+            }
         }
 
         visualsRefreshed.Invoke();
