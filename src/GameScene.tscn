@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=11 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
 [ext_resource type="PackedScene" uid="uid://bjdqiiodvrwgm" path="res://hand.tscn" id="3_cbrg8"]
+[ext_resource type="Resource" uid="uid://cx4sdt1jf4fgk" path="res://Cards/JamCard.tres" id="4_8hidv"]
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
 [ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="5_ox7ms"]
+[ext_resource type="Resource" uid="uid://d1drfc4ibxgbf" path="res://Cards/BreadCard.tres" id="5_x07ns"]
 [ext_resource type="PackedScene" uid="uid://c8klurdrb6qpt" path="res://opponent_stats.tscn" id="6_20vrj"]
 [ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
 [ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
@@ -12,43 +14,15 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 14)
 offset = Vector2(0, -100)
-zoom = Vector2(0.715, 0.715)
+zoom = Vector2(0.67, 0.67)
 
 [node name="Table" type="Sprite2D" parent="."]
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(17, 55)
 scale = Vector2(1.19792, 1.16975)
 texture = ExtResource("1_3banv")
-
-[node name="Hand2" type="Sprite2D" parent="."]
-position = Vector2(-116, 314)
-texture = ExtResource("2_8wo47")
-
-[node name="Hand3" type="Sprite2D" parent="."]
-position = Vector2(151, 311)
-scale = Vector2(-1, 1)
-texture = ExtResource("2_8wo47")
-
-[node name="HandVisuals" parent="." instance=ExtResource("3_cbrg8")]
-position = Vector2(-3, 166)
-
-[node name="DwarfNeutral" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(12, -213)
-scale = Vector2(0.199789, 0.238521)
-texture = ExtResource("4_mdx6l")
-
-[node name="ElfNeutral" type="Sprite2D" parent="."]
-position = Vector2(418, -61)
-scale = Vector2(0.270854, 0.270854)
-texture = ExtResource("5_ox7ms")
-
-[node name="ElfNeutral2" type="Sprite2D" parent="."]
-modulate = Color(0.458824, 0.882353, 0.458824, 1)
-position = Vector2(-376, -52.9457)
-scale = Vector2(-0.253428, 0.224147)
-texture = ExtResource("5_ox7ms")
 
 [node name="OpponentStats" parent="." instance=ExtResource("6_20vrj")]
 offset_left = 166.0
@@ -76,7 +50,60 @@ opponent_name = "Ruth"
 anger = 96.0
 relationship = 0.0
 
-[node name="PlayerState" type="Node" parent="." node_paths=PackedStringArray("handVisuals")]
+[node name="Player" type="Node2D" parent="."]
+
+[node name="PlayerState" type="Node" parent="Player" node_paths=PackedStringArray("handVisuals")]
 script = ExtResource("7_7hidr")
-handVisuals = NodePath("../HandVisuals")
+cardsInHand = Array[Resource]([ExtResource("4_8hidv"), ExtResource("5_x07ns")])
+handVisuals = NodePath("../PlayerHand/HandVisuals")
 cardPackedScene = ExtResource("8_b63ea")
+
+[node name="PlayerHand" type="Node2D" parent="Player"]
+position = Vector2(0, 144)
+scale = Vector2(0.75, 0.75)
+
+[node name="Hand2" type="Sprite2D" parent="Player/PlayerHand"]
+position = Vector2(-116, 314)
+texture = ExtResource("2_8wo47")
+
+[node name="Hand3" type="Sprite2D" parent="Player/PlayerHand"]
+position = Vector2(151, 311)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_8wo47")
+
+[node name="HandVisuals" parent="Player/PlayerHand" instance=ExtResource("3_cbrg8")]
+position = Vector2(-3, 166)
+
+[node name="Dwarf" type="Node2D" parent="."]
+
+[node name="DwarfNeutral" type="Sprite2D" parent="Dwarf"]
+z_index = -1
+position = Vector2(12, -213)
+scale = Vector2(0.199789, 0.238521)
+texture = ExtResource("4_mdx6l")
+
+[node name="DwarfState" type="Node" parent="Dwarf"]
+script = ExtResource("7_7hidr")
+
+[node name="Elf" type="Node2D" parent="."]
+
+[node name="ElfState" type="Node" parent="Elf"]
+script = ExtResource("7_7hidr")
+
+[node name="ElfNeutral" type="Sprite2D" parent="Elf"]
+position = Vector2(418, -61)
+scale = Vector2(0.270854, 0.270854)
+texture = ExtResource("5_ox7ms")
+
+[node name="Construct" type="Node2D" parent="."]
+
+[node name="ConstructNeutral" type="Sprite2D" parent="Construct"]
+modulate = Color(0.458824, 0.882353, 0.458824, 1)
+position = Vector2(-376, -52.9457)
+rotation = 3.14159
+scale = Vector2(0.253428, -0.224147)
+texture = ExtResource("5_ox7ms")
+
+[node name="ConstructState" type="Node" parent="Construct"]
+script = ExtResource("7_7hidr")

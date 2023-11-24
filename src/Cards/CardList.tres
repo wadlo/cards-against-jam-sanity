@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dfvkwne4u7yg5"]
+
+[ext_resource type="Script" path="res://CardGameLogic/CardListConfig.cs" id="1_30ymn"]
+[ext_resource type="Resource" uid="uid://d1drfc4ibxgbf" path="res://Cards/BreadCard.tres" id="1_bmj6s"]
+[ext_resource type="Resource" uid="uid://cx4sdt1jf4fgk" path="res://Cards/JamCard.tres" id="2_n7lub"]
+
+[resource]
+script = ExtResource("1_30ymn")
+cards = Array[Resource]([ExtResource("1_bmj6s"), ExtResource("2_n7lub")])

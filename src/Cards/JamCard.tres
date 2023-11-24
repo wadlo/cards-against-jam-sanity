@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cx4sdt1jf4fgk"]
+
+[ext_resource type="Script" path="res://CardGameLogic/CardConfig.cs" id="1_1fo1l"]
+[ext_resource type="Texture2D" uid="uid://ceiyqxx4c5xwh" path="res://Graphics/JamCard.png" id="1_qwht4"]
+
+[resource]
+script = ExtResource("1_1fo1l")
+cardType = 0
+cardName = "Jelly"
+cardDescription = "A delicious treat"
+cardImage = ExtResource("1_qwht4")
