@@ -40,4 +40,15 @@ public partial class RoundController : Node
             computer.RefreshVisuals();
         }
     }
+
+    public static void PlayComputers()
+    {
+        Random random = new Random();
+
+        foreach (PlayerState computer in instance.computers)
+        {
+            int cardIndex = computer.cardsInHand.Count;
+            computer.PlayCard(computer.cardsInHand[random.Next(cardIndex)], true);
+        }
+    }
 }

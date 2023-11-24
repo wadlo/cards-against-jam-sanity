@@ -54,11 +54,14 @@ public partial class PlayerState : Node
         visualsRefreshed.Invoke();
     }
 
-    public void CardClickedByPlayer(CardConfig clickedCard)
+    public void PlayCard(CardConfig clickedCard, bool isAutomatic = false)
     {
         cardsLaidDown.Add(clickedCard);
         cardsInHand.Remove(clickedCard);
-        GD.Print(cardsLaidDown);
         RefreshVisuals();
+        if (isAutomatic == false)
+        {
+            RoundController.PlayComputers();
+        }
     }
 }

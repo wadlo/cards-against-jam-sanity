@@ -14,4 +14,4 @@ func _process(_delta):
 		index += 1
 
 func clicked_card(config):
-	player_state.CardClickedByPlayer(config)
+	player_state.PlayCard(config, false)
