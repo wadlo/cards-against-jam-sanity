@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=12 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8klurdrb6qpt" path="res://opponent_stats.tscn" id="6_20vrj"]
 [ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
 [ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
+[ext_resource type="Script" path="res://PlayedCards.cs" id="9_4cmec"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -72,8 +73,15 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("2_8wo47")
 
-[node name="HandVisuals" parent="Player/PlayerHand" instance=ExtResource("3_cbrg8")]
+[node name="HandVisuals" parent="Player/PlayerHand" node_paths=PackedStringArray("player_state") instance=ExtResource("3_cbrg8")]
 position = Vector2(-3, 166)
+player_state = NodePath("../../PlayerState")
+
+[node name="PlayersPlayedCards" type="Node2D" parent="Player" node_paths=PackedStringArray("playerState")]
+position = Vector2(0, 121)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("9_4cmec")
+playerState = NodePath("../PlayerState")
 
 [node name="Dwarf" type="Node2D" parent="."]
 
@@ -86,6 +94,11 @@ texture = ExtResource("4_mdx6l")
 [node name="DwarfState" type="Node" parent="Dwarf"]
 script = ExtResource("7_7hidr")
 
+[node name="DwarfsPlayedCards" type="Node2D" parent="Dwarf" node_paths=PackedStringArray("playerState")]
+position = Vector2(0, -86)
+script = ExtResource("9_4cmec")
+playerState = NodePath("../DwarfState")
+
 [node name="Elf" type="Node2D" parent="."]
 
 [node name="ElfState" type="Node" parent="Elf"]
@@ -95,6 +108,11 @@ script = ExtResource("7_7hidr")
 position = Vector2(418, -61)
 scale = Vector2(0.270854, 0.270854)
 texture = ExtResource("5_ox7ms")
+
+[node name="ElfPlayedCards" type="Node2D" parent="Elf" node_paths=PackedStringArray("playerState")]
+position = Vector2(256, 2)
+script = ExtResource("9_4cmec")
+playerState = NodePath("../ElfState")
 
 [node name="Construct" type="Node2D" parent="."]
 
@@ -107,3 +125,8 @@ texture = ExtResource("5_ox7ms")
 
 [node name="ConstructState" type="Node" parent="Construct"]
 script = ExtResource("7_7hidr")
+
+[node name="ConstructPlayedCards" type="Node2D" parent="Construct" node_paths=PackedStringArray("playerState")]
+position = Vector2(-226, 1)
+script = ExtResource("9_4cmec")
+playerState = NodePath("../ConstructState")

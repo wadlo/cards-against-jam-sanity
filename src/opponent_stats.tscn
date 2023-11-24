@@ -18,6 +18,7 @@ text = "Ferdinand"
 label_settings = SubResource("LabelSettings_w11ea")
 
 [node name="Anger" type="HBoxContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
@@ -30,6 +31,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Relationship" type="HBoxContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 

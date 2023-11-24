@@ -1,6 +1,8 @@
 using Godot;
 using Godot.Collections;
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public partial class PlayerState : Node
 {
@@ -21,13 +23,18 @@ public partial class PlayerState : Node
     [Export]
     public PackedScene cardPackedScene;
 
+    public Action visualsRefreshed = () => { };
+
+    [Export]
+    public bool isPlayer;
+
     public override void _Ready()
     {
         if (handVisuals != null)
-            RefreshHandVisuals();
+            RefreshVisuals();
     }
 
-    public void RefreshHandVisuals()
+    public void RefreshVisuals()
     {
         foreach (Node node in handVisuals.GetChildren())
         {
@@ -36,8 +43,19 @@ public partial class PlayerState : Node
         foreach (CardConfig card in cardsInHand)
         {
             Node2D instantiatedCard = (Node2D)cardPackedScene.Instantiate();
+            instantiatedCard.Set("config", card);
             handVisuals.AddChild(instantiatedCard);
             instantiatedCard.GetChild<Sprite2D>(0).Texture = card.cardImage;
         }
+
+        visualsRefreshed.Invoke();
+    }
+
+    public void CardClickedByPlayer(CardConfig clickedCard)
+    {
+        cardsLaidDown.Add(clickedCard);
+        cardsInHand.Remove(clickedCard);
+        GD.Print(cardsLaidDown);
+        RefreshVisuals();
     }
 }

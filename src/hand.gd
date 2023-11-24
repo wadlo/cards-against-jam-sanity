@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var cards: Array[Node] = get_children()
+@export var player_state: Node
 
 func _process(_delta):
 	cards = get_children()
@@ -11,3 +12,6 @@ func _process(_delta):
 		card.rotation_degrees = (len(cards) / 2 - index) * -15
 		
 		index += 1
+
+func clicked_card(config):
+	player_state.CardClickedByPlayer(config)
