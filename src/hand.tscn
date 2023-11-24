@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjdqiiodvrwgm"]
+
+[ext_resource type="Texture2D" uid="uid://ceiyqxx4c5xwh" path="res://Graphics/JamCard.png" id="1_tnghm"]
+[ext_resource type="Script" path="res://hand.gd" id="1_uu2tx"]
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_uu2tx")
+
+[node name="JamCard" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
+
+[node name="JamCard2" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
+
+[node name="JamCard3" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
+
+[node name="JamCard4" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
+
+[node name="JamCard5" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
+
+[node name="JamCard6" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
+
+[node name="JamCard7" type="Sprite2D" parent="."]
+texture = ExtResource("1_tnghm")
