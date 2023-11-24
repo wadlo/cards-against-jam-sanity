@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5ym15fdxvte6"]
+
+[ext_resource type="Texture2D" uid="uid://b76fe3b0w7cyf" path="res://Graphics/HoneyCard.png" id="1_jnnxt"]
+[ext_resource type="Script" path="res://CardGameLogic/CardConfig.cs" id="2_1gin2"]
+
+[resource]
+script = ExtResource("2_1gin2")
+cardType = 3
+cardName = "Honey"
+cardDescription = "Steal 1 card from an opponent"
+cardImage = ExtResource("1_jnnxt")

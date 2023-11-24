@@ -9,7 +9,9 @@ public partial class CardConfig : Resource
     {
         Jelly,
         Bread,
-        PeanutButtor
+        PeanutButter,
+
+        Honey
     }
 
     [Export]
