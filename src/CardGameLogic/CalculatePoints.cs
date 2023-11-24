@@ -2,18 +2,18 @@ using System.Collections.Generic;
 
 public class CalculatePoints
 {
-    public int Calculate(List<Card> cards)
+    public int Calculate(List<CardConfig> cards)
     {
         int points = 0;
         bool hasBread = false;
 
-        foreach (Card card in cards)
+        foreach (CardConfig card in cards)
         {
-            if (card is JamCard)
+            if (card.cardType == CardConfig.CardType.Jelly)
             {
                 points += 3;
             }
-            if (card is BreadCard)
+            if (card.cardType == CardConfig.CardType.Bread)
             {
                 if (hasBread)
                 {

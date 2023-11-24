@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cx4sdt1jf4fgk"]
+
+[ext_resource type="Script" path="res://CardGameLogic/CardConfig.cs" id="1_1fo1l"]
+
+[resource]
+script = ExtResource("1_1fo1l")
+cardType = 0
+cardName = "Jelly"
+cardDescription = "A delicious treat"

@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public partial class PlayerState : Node
 {
-    public List<Card> cardsLaidDown = new List<Card>();
-    public List<Card> cardsInHand;
+    public Array<CardConfig> cardsLaidDown = new Array<CardConfig>();
+
+    [Export]
+    public Array<CardConfig> cardsInHand;
 
     // Each time the player makes a bad choice, friendship goes down. When a good choice is made, it goes up.
     public int timesOffended = 0;
@@ -21,13 +23,6 @@ public partial class PlayerState : Node
 
     public override void _Ready()
     {
-        // Give each player the same hand for now
-        cardsInHand = new List<Card>();
-        cardsInHand.Add(new BreadCard());
-        cardsInHand.Add(new BreadCard());
-        cardsInHand.Add(new JamCard());
-        cardsInHand.Add(new JamCard());
-
         if (handVisuals != null)
             RefreshHandVisuals();
     }
@@ -38,7 +33,7 @@ public partial class PlayerState : Node
         {
             node.QueueFree();
         }
-        foreach (Card card in cardsInHand)
+        foreach (CardConfig card in cardsInHand)
         {
             Node2D instantiatedCard = (Node2D)cardPackedScene.Instantiate();
             handVisuals.AddChild(instantiatedCard);

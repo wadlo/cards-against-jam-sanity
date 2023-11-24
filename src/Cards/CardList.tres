@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dfvkwne4u7yg5"]
+
+[ext_resource type="Script" path="res://CardGameLogic/CardListConfig.cs" id="1_30ymn"]
+
+[resource]
+script = ExtResource("1_30ymn")
+cards = Array[Resource]([null, null, null])
