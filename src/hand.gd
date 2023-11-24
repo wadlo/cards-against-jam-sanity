@@ -7,7 +7,7 @@ func _process(_delta):
 	
 	var index = 0
 	for card in cards:
-		card.position.x = index * 80 - len(cards) * 40
-		card.rotation_degrees = (len(cards) / 2 - index) * -20
+		card.position.x = index * 130 - len(cards) * 65
+		card.rotation_degrees = (len(cards) / 2 - index) * -15
 		
 		index += 1
