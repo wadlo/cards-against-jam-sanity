@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://mrwpxwiudw6u"]
 
 [ext_resource type="Texture2D" uid="uid://ceiyqxx4c5xwh" path="res://Graphics/JamCard.png" id="1_mbme7"]
-[ext_resource type="Script" path="res://card.gd" id="1_upmxa"]
+[ext_resource type="Script" path="res://CardComponent.cs" id="1_wv7xp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbe61"]
 size = Vector2(175, 293)
 
 [node name="Card" type="Area2D" groups=["card"]]
 z_index = 1
-script = ExtResource("1_upmxa")
+script = ExtResource("1_wv7xp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_mbme7")
@@ -16,6 +16,3 @@ texture = ExtResource("1_mbme7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_bbe61")
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
