@@ -61,7 +61,7 @@ public partial class CardComponent : Area2D
             tween.TweenProperty(
                 this,
                 "global_scale",
-                new Vector2((startScale.X + 1.0f) / 2 * 1.3f, (startScale.Y + 1.0f) / 2 * 1.3f),
+                new Vector2((startScale.X + 0.7f) / 2 * 1.3f, (startScale.Y + 0.7f) / 2 * 1.3f),
                 0.1f
             );
             tween.TweenProperty(this, "position", new Vector2(Position.X, defaultYPos - 100), 0.1f);

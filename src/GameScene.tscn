@@ -87,8 +87,8 @@ playerState = NodePath("../PlayerState")
 
 [node name="DwarfNeutral" type="Sprite2D" parent="Dwarf"]
 z_index = -1
-position = Vector2(12, -213)
-scale = Vector2(0.199789, 0.238521)
+position = Vector2(16, -224)
+scale = Vector2(0.252917, 0.301948)
 texture = ExtResource("4_mdx6l")
 
 [node name="DwarfState" type="Node" parent="Dwarf"]
@@ -105,8 +105,8 @@ playerState = NodePath("../DwarfState")
 script = ExtResource("7_7hidr")
 
 [node name="ElfNeutral" type="Sprite2D" parent="Elf"]
-position = Vector2(418, -61)
-scale = Vector2(0.270854, 0.270854)
+position = Vector2(406, -95)
+scale = Vector2(0.295348, 0.295348)
 texture = ExtResource("5_ox7ms")
 
 [node name="ElfPlayedCards" type="Node2D" parent="Elf" node_paths=PackedStringArray("playerState")]
@@ -118,9 +118,9 @@ playerState = NodePath("../ElfState")
 
 [node name="ConstructNeutral" type="Sprite2D" parent="Construct"]
 modulate = Color(0.458824, 0.882353, 0.458824, 1)
-position = Vector2(-376, -52.9457)
+position = Vector2(-399.784, -87.0643)
 rotation = 3.14159
-scale = Vector2(0.253428, -0.224147)
+scale = Vector2(0.300386, -0.265679)
 texture = ExtResource("5_ox7ms")
 
 [node name="ConstructState" type="Node" parent="Construct"]
