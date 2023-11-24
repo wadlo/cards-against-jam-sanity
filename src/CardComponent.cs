@@ -55,7 +55,8 @@ public partial class CardComponent : Area2D
     {
         if (IsMostHoveredCard())
         {
-            ZIndex = 2;
+            ZIndex = 100;
+
             var tween = GetTree().CreateTween();
             tween.TweenProperty(
                 this,
@@ -67,7 +68,6 @@ public partial class CardComponent : Area2D
         }
         else
         {
-            ZIndex = 1;
             var tween = GetTree().CreateTween();
             tween.TweenProperty(
                 this,
@@ -76,6 +76,7 @@ public partial class CardComponent : Area2D
                 0.1f
             );
             tween.TweenProperty(this, "position", new Vector2(Position.X, defaultYPos), 0.1f);
+            ZIndex = (int)Mathf.Round(GlobalScale.X);
         }
     }
 
