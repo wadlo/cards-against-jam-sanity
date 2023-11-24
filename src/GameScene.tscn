@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=9 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
 [ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="5_ox7ms"]
 [ext_resource type="PackedScene" uid="uid://c8klurdrb6qpt" path="res://opponent_stats.tscn" id="6_20vrj"]
+[ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
+[ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -28,7 +30,7 @@ position = Vector2(151, 311)
 scale = Vector2(-1, 1)
 texture = ExtResource("2_8wo47")
 
-[node name="Hand" parent="." instance=ExtResource("3_cbrg8")]
+[node name="HandVisuals" parent="." instance=ExtResource("3_cbrg8")]
 position = Vector2(-3, 166)
 
 [node name="DwarfNeutral" type="Sprite2D" parent="."]
@@ -73,3 +75,8 @@ offset_bottom = -237.0
 opponent_name = "Ruth"
 anger = 96.0
 relationship = 0.0
+
+[node name="PlayerState" type="Node" parent="." node_paths=PackedStringArray("handVisuals")]
+script = ExtResource("7_7hidr")
+handVisuals = NodePath("../HandVisuals")
+cardPackedScene = ExtResource("8_b63ea")

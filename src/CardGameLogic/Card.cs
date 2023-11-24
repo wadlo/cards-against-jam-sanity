@@ -1,4 +1,6 @@
-public class Card
+using System.Collections.Generic;
+
+public abstract class Card
 {
-    public void RunAction() { }
+    public abstract void RunAction();
 }
