@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://lg0ur6mspegy"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu.cs" id="1_0ynec"]
+[ext_resource type="AudioStream" uid="uid://drffc3f35fc86" path="res://Menus/blip.mp3" id="2_sbh6h"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ynec")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 183.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="SoundSlider" type="VSlider" parent="CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+value = 100.0
+
+[node name="SampleSound" type="AudioStreamPlayer2D" parent="CenterContainer/HBoxContainer"]
+stream = ExtResource("2_sbh6h")
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Play the game"
+
+[node name="SoundButton" type="Button" parent="CenterContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Sound Volume"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(164, 93)
+zoom = Vector2(3.5, 3.5)
+
+[connection signal="value_changed" from="CenterContainer/HBoxContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/GridContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/GridContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/GridContainer/ExitButton" to="." method="_on_exit_button_pressed"]
