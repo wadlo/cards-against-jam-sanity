@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Cards Against Jam Sanity"
+run/main_scene="res://GameScene.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,3 +23,4 @@ project/assembly_name="Cards Against Jam Sanity"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.266667, 0.364706, 0.47451, 1)

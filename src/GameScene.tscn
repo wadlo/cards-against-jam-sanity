@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b750hr51q1ltb"]
+
+[ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
+[ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Table" type="Sprite2D" parent="."]
+modulate = Color(0.619608, 0.619608, 0.619608, 1)
+position = Vector2(17, 55)
+scale = Vector2(1.19792, 1.16975)
+texture = ExtResource("1_3banv")
+
+[node name="Hand2" type="Sprite2D" parent="."]
+position = Vector2(-116, 314)
+texture = ExtResource("2_8wo47")
+
+[node name="Hand3" type="Sprite2D" parent="."]
+position = Vector2(151, 311)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_8wo47")
