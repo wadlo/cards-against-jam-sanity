@@ -31,8 +31,8 @@ zoom = Vector2(0.67, 0.67)
 
 [node name="Table" type="Sprite2D" parent="."]
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
-position = Vector2(17, 55)
-scale = Vector2(1.19792, 1.16975)
+position = Vector2(0, -33.5005)
+scale = Vector2(1.3449, 1.31327)
 texture = ExtResource("1_3banv")
 
 [node name="OpponentStats" parent="." instance=ExtResource("6_20vrj")]
@@ -88,12 +88,13 @@ position = Vector2(-3, 166)
 player_state = NodePath("../../PlayerState")
 
 [node name="PlayersPlayedCards" type="Node2D" parent="Player" node_paths=PackedStringArray("playerState")]
-position = Vector2(0, 121)
+position = Vector2(0, 87)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("9_4cmec")
 playerState = NodePath("../PlayerState")
 
 [node name="Dwarf" type="Node2D" parent="."]
+position = Vector2(0, -121)
 
 [node name="DwarfNeutral" type="Sprite2D" parent="Dwarf"]
 z_index = -1
@@ -110,6 +111,7 @@ script = ExtResource("9_4cmec")
 playerState = NodePath("../DwarfState")
 
 [node name="Elf" type="Node2D" parent="."]
+position = Vector2(68, 0)
 
 [node name="ElfState" type="Node" parent="Elf"]
 script = ExtResource("7_7hidr")
@@ -125,6 +127,7 @@ script = ExtResource("9_4cmec")
 playerState = NodePath("../ElfState")
 
 [node name="Construct" type="Node2D" parent="."]
+position = Vector2(-117, 0)
 
 [node name="ConstructNeutral" type="Sprite2D" parent="Construct"]
 modulate = Color(0.458824, 0.882353, 0.458824, 1)
