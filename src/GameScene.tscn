@@ -87,7 +87,7 @@ playerState = NodePath("../PlayerState")
 
 [node name="DwarfNeutral" type="Sprite2D" parent="Dwarf"]
 z_index = -1
-position = Vector2(16, -224)
+position = Vector2(18, -234)
 scale = Vector2(0.252917, 0.301948)
 texture = ExtResource("4_mdx6l")
 
@@ -105,7 +105,7 @@ playerState = NodePath("../DwarfState")
 script = ExtResource("7_7hidr")
 
 [node name="ElfNeutral" type="Sprite2D" parent="Elf"]
-position = Vector2(406, -95)
+position = Vector2(458, -85)
 scale = Vector2(0.295348, 0.295348)
 texture = ExtResource("5_ox7ms")
 
@@ -118,7 +118,7 @@ playerState = NodePath("../ElfState")
 
 [node name="ConstructNeutral" type="Sprite2D" parent="Construct"]
 modulate = Color(0.458824, 0.882353, 0.458824, 1)
-position = Vector2(-399.784, -87.0643)
+position = Vector2(-440, -78)
 rotation = 3.14159
 scale = Vector2(0.300386, -0.265679)
 texture = ExtResource("5_ox7ms")
