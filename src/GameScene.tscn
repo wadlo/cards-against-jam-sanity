@@ -14,8 +14,9 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 14)
 offset = Vector2(0, -100)
-zoom = Vector2(0.715, 0.715)
+zoom = Vector2(0.67, 0.67)
 
 [node name="Table" type="Sprite2D" parent="."]
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
@@ -58,6 +59,8 @@ handVisuals = NodePath("../PlayerHand/HandVisuals")
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="PlayerHand" type="Node2D" parent="Player"]
+position = Vector2(0, 144)
+scale = Vector2(0.75, 0.75)
 
 [node name="Hand2" type="Sprite2D" parent="Player/PlayerHand"]
 position = Vector2(-116, 314)
