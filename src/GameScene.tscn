@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=22 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -17,6 +17,18 @@
 [ext_resource type="Script" path="res://HoveredDescription.cs" id="12_pfir4"]
 [ext_resource type="Texture2D" uid="uid://dk8l65l5asa0i" path="res://Graphics/WhiteSquare.png" id="13_b47gg"]
 [ext_resource type="Texture2D" uid="uid://cg4l0ocdqqu83" path="res://Graphics/Construct.png" id="15_4b5jj"]
+[ext_resource type="AudioStream" uid="uid://73oo6ajcjm2t" path="res://Audio/card_1.wav" id="18_5m8l2"]
+[ext_resource type="AudioStream" uid="uid://dnjh0wpyshsaa" path="res://Audio/card_2.wav" id="19_hswaq"]
+[ext_resource type="AudioStream" uid="uid://ccwrlx6alcuyo" path="res://Audio/card_3.wav" id="20_qflqd"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2lbtq"]
+streams_count = 3
+stream_0/stream = ExtResource("18_5m8l2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("19_hswaq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("20_qflqd")
+stream_2/weight = 1.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -188,3 +200,6 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("12_pfir4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_2lbtq")
