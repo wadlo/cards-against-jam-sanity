@@ -7,9 +7,15 @@ public class Dialogue
         Dwarf,
         Elf,
         Golem,
+        None,
     }
 
-    public Dialogue(List<DialogueLine> dialogueLines) { }
+    public List<DialogueLine> dialogueLines;
+
+    public Dialogue(List<DialogueLine> dialogueLines)
+    {
+        this.dialogueLines = dialogueLines;
+    }
 
     public void test()
     {
