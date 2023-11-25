@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public partial class CardComponent : Area2D
 {
     Vector2 startScale;
+    Vector2 startGlobalPosition;
     float defaultYPos;
 
     public CardConfig config;
@@ -27,7 +28,7 @@ public partial class CardComponent : Area2D
         foreach (CardComponent cardComponent in hoveredCards)
         {
             float currSquareDist = (
-                viewport.GetMousePosition() - cardComponent.Position
+                viewport.GetMousePosition() - cardComponent.startGlobalPosition
             ).LengthSquared();
             if (currSquareDist < bestSquareDist)
             {
@@ -59,6 +60,7 @@ public partial class CardComponent : Area2D
         {
             hasSetStartRotation = true;
             startRotation = GlobalRotation;
+            startGlobalPosition = GlobalPosition;
         }
         if (IsMostHoveredCard())
         {
