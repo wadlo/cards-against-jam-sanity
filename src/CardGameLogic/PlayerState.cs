@@ -56,7 +56,7 @@ public partial class PlayerState : Node
 
 	public void PlayCard(CardConfig clickedCard, bool isAutomatic = false)
 	{
-		GetNode<AudioStreamPlayer>("../../AudioStreamPlayer").Play(0);
+		GetNode<AudioStreamPlayer>("../../CardSFX").Play(0);
 		cardsLaidDown.Add(clickedCard);
 		cardsInHand.Remove(clickedCard);
 		RefreshVisuals();

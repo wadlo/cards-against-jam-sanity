@@ -16,6 +16,9 @@ public partial class RoundController : Node
 	public CardListConfig cardList;
 	public int CARDS_IN_HAND = 7;
 	
+	[Export]
+	public static AudioStreamPlayer turnSfx;
+	
 	public static bool PlayerCanPlay = true;
 	
 	public bool CanPlayerPlay()
@@ -75,6 +78,7 @@ public partial class RoundController : Node
 		canPlayTimer.Timeout += () =>
 		{
 			PlayerCanPlay = true;
+			turnSfx.Play(0);
 		};
 		instance.computers[1].AddChild(canPlayTimer);
 		canPlayTimer.Start();
