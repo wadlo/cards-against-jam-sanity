@@ -52,6 +52,7 @@ public partial class RoundController : Node
         if (currentRoundState == RoundState.offendedDialogue && DialogueState.IsFinished())
         {
             currentRoundState = RoundState.enemyTurn;
+            RoundController.PlayComputers();
         }
     }
 

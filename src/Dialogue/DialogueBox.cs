@@ -15,6 +15,17 @@ public partial class DialogueBox : ColorRect
         }
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        if (
+            @event is InputEventMouseButton mouseEvent
+            && ((InputEventMouseButton)@event).IsPressed()
+        )
+        {
+            DialogueState.Next();
+        }
+    }
+
     public void MakeVisible()
     {
         this.Modulate = new Color("#ffffffff");
