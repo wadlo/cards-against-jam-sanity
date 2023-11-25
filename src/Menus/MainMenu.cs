@@ -17,7 +17,8 @@ public partial class MainMenu : Control
 	private void _on_sound_slider_value_changed(double value)
 	{
 		GetNode<AudioStreamPlayer2D>("CenterContainer/HBoxContainer/SampleSound").Play();
-		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), (float)value);
+		int minvol = 40;
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), -minvol + ((float)value / (100/minvol)));
 	}
 
 
