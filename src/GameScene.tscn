@@ -33,6 +33,7 @@ stream_2/weight = 1.0
 [node name="Node2D" type="Node2D"]
 
 [node name="RoundController" type="Node" parent="." node_paths=PackedStringArray("player", "computers")]
+unique_name_in_owner = true
 script = ExtResource("1_cmhrf")
 player = NodePath("../Player/PlayerState")
 computers = [NodePath("../Dwarf/DwarfState"), NodePath("../Elf/ElfState"), NodePath("../Construct/ConstructState")]

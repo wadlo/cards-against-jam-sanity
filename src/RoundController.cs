@@ -15,7 +15,14 @@ public partial class RoundController : Node
 	[Export]
 	public CardListConfig cardList;
 	public int CARDS_IN_HAND = 7;
-
+	
+	public static bool PlayerCanPlay = true;
+	
+	public bool CanPlayerPlay()
+	{
+		return PlayerCanPlay;
+	}
+	
 	public override void _Ready()
 	{
 		instance = this;
@@ -44,11 +51,32 @@ public partial class RoundController : Node
 	public static void PlayComputers()
 	{
 		Random random = new Random();
+		int index = 1;
+		
+		PlayerCanPlay = false;
 
 		foreach (PlayerState computer in instance.computers)
 		{
-			int cardIndex = computer.cardsInHand.Count;
-			computer.PlayCard(computer.cardsInHand[random.Next(cardIndex)], true);
+			Timer nextTimer = new Timer();
+			nextTimer.WaitTime = 1.0f * index;
+			nextTimer.OneShot = true;
+			nextTimer.Timeout += () =>
+			{
+				int cardIndex = computer.cardsInHand.Count;
+				computer.PlayCard(computer.cardsInHand[random.Next(cardIndex)], true);
+			};
+			computer.AddChild(nextTimer);
+			nextTimer.Start();
+			index += 1;
 		}
+		Timer canPlayTimer = new Timer();
+		canPlayTimer.WaitTime = 1.0f * (index - 1);
+		canPlayTimer.OneShot = true;
+		canPlayTimer.Timeout += () =>
+		{
+			PlayerCanPlay = true;
+		};
+		instance.computers[1].AddChild(canPlayTimer);
+		canPlayTimer.Start();
 	}
 }
