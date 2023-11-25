@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=25 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://Dialogue/DialogueBox.cs" id="18_5miqa"]
 [ext_resource type="AudioStream" uid="uid://dnjh0wpyshsaa" path="res://Audio/card_2.wav" id="19_hswaq"]
 [ext_resource type="AudioStream" uid="uid://ccwrlx6alcuyo" path="res://Audio/card_3.wav" id="20_qflqd"]
+[ext_resource type="Script" path="res://Dialogue/DialogueState.cs" id="22_5hmf6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwan6"]
 font_size = 29
@@ -119,6 +120,9 @@ texture = ExtResource("4_mdx6l")
 script = ExtResource("7_7hidr")
 cardPackedScene = ExtResource("8_b63ea")
 
+[node name="DwarfCameraCenter" type="Node2D" parent="Dwarf"]
+position = Vector2(-2, -110)
+
 [node name="NewTable" type="Sprite2D" parent="."]
 self_modulate = Color(0.501961, 0.317647, 0.2, 1)
 position = Vector2(-2, -41)
@@ -166,6 +170,9 @@ position = Vector2(458, -85)
 scale = Vector2(0.295348, 0.295348)
 texture = ExtResource("5_ox7ms")
 
+[node name="ElfCameraCenter" type="Node2D" parent="Elf"]
+position = Vector2(431, 5)
+
 [node name="Construct" type="Node2D" parent="."]
 position = Vector2(-117, 0)
 
@@ -177,6 +184,9 @@ texture = ExtResource("15_4b5jj")
 [node name="ConstructState" type="Node" parent="Construct"]
 script = ExtResource("7_7hidr")
 cardPackedScene = ExtResource("8_b63ea")
+
+[node name="ConstractCameraCenter" type="Node2D" parent="Construct"]
+position = Vector2(-460, -38)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -241,3 +251,10 @@ autowrap_mode = 3
 stream = SubResource("AudioStreamRandomizer_2lbtq")
 
 [node name="TurnSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="DialogueState" type="Node" parent="." node_paths=PackedStringArray("dwarfCameraCenter", "elfCameraCenter", "golemCameraCenter", "camera")]
+script = ExtResource("22_5hmf6")
+dwarfCameraCenter = NodePath("../Dwarf/DwarfCameraCenter")
+elfCameraCenter = NodePath("../Elf/ElfCameraCenter")
+golemCameraCenter = NodePath("../Construct/ConstractCameraCenter")
+camera = NodePath("../Camera2D")
