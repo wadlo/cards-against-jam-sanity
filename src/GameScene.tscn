@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=24 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -18,8 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://dk8l65l5asa0i" path="res://Graphics/WhiteSquare.png" id="13_b47gg"]
 [ext_resource type="Texture2D" uid="uid://cg4l0ocdqqu83" path="res://Graphics/Construct.png" id="15_4b5jj"]
 [ext_resource type="AudioStream" uid="uid://73oo6ajcjm2t" path="res://Audio/card_1.wav" id="18_5m8l2"]
+[ext_resource type="Script" path="res://Dialogue/DialogueBox.cs" id="18_5miqa"]
 [ext_resource type="AudioStream" uid="uid://dnjh0wpyshsaa" path="res://Audio/card_2.wav" id="19_hswaq"]
 [ext_resource type="AudioStream" uid="uid://ccwrlx6alcuyo" path="res://Audio/card_3.wav" id="20_qflqd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwan6"]
+font_size = 29
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2lbtq"]
 streams_count = 3
@@ -181,7 +185,7 @@ offset_left = 889.0
 offset_top = 465.0
 offset_right = 1141.0
 offset_bottom = 635.0
-color = Color(0, 0, 0, 0.243137)
+color = Color(0, 0, 0, 0.568627)
 
 [node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 1
@@ -200,6 +204,38 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("12_pfir4")
+
+[node name="Dialogue" type="ColorRect" parent="CanvasLayer"]
+self_modulate = Color(0, 0, 0, 0.556863)
+z_index = 4096
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -411.0
+offset_top = -262.0
+offset_right = 411.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("18_5miqa")
+
+[node name="Label" type="Label" parent="CanvasLayer/Dialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 19.0
+offset_right = -25.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+label_settings = SubResource("LabelSettings_cwan6")
+autowrap_mode = 3
 
 [node name="CardSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_2lbtq")

@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
+using Godot;
 
-public class DialogueState
+public partial class DialogueState : Node
 {
     public static Dialogue.players currentSpeaking = Dialogue.players.None;
 
