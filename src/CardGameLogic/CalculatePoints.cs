@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
+using Godot.Collections;
 
 public class CalculatePoints
 {
-    public int Calculate(List<CardConfig> cards)
+    public static int Calculate(Array<CardConfig> cards)
     {
         int points = 0;
         bool hasBread = false;
@@ -28,5 +30,22 @@ public class CalculatePoints
         }
 
         return points;
+    }
+
+    public static PlayerState GetWinner()
+    {
+        PlayerState currWinner = null;
+        int winnerScore = int.MinValue;
+        foreach (PlayerState playerState in RoundController.instance.GetAllPlayers())
+        {
+            var playerScore = Calculate(playerState.cardsLaidDown);
+            if (playerScore > winnerScore)
+            {
+                winnerScore = playerScore;
+                currWinner = playerState;
+            }
+        }
+
+        return currWinner;
     }
 }

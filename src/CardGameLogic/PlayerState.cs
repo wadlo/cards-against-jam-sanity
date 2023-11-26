@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 public partial class PlayerState : Node
 {
     public Array<CardConfig> cardsLaidDown = new Array<CardConfig>();
+    public Dialogue.players player;
 
     [Export]
     public Array<CardConfig> cardsInHand;

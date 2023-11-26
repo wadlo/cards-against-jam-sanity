@@ -15,7 +15,7 @@ public partial class RoundController : Node
 
     [Export]
     public CardListConfig cardList;
-    public int CARDS_IN_HAND = 7;
+    public int CARDS_IN_HAND = 5;
 
     [Export]
     public static AudioStreamPlayer turnSfx;
@@ -65,7 +65,7 @@ public partial class RoundController : Node
 
     public void StartNewRound()
     {
-        var random = new Random();
+        Random random = new Random(new System.DateTime().Millisecond);
         List<PlayerState> computersAndPlayer = new List<PlayerState>(computers);
         computersAndPlayer.Add(player);
         foreach (PlayerState computer in computersAndPlayer)
@@ -82,7 +82,7 @@ public partial class RoundController : Node
 
     public static void PlayComputers()
     {
-        Random random = new Random();
+        Random random = new Random(new System.DateTime().Millisecond);
         int index = 1;
 
         currentRoundState = RoundState.enemyTurn;
@@ -112,10 +112,17 @@ public partial class RoundController : Node
             {
                 PlayRoundEndDialogue();
             }
-            turnSfx.Play(0);
+            turnSfx?.Play(0);
         };
         instance.computers[1].AddChild(canPlayTimer);
         canPlayTimer.Start();
+    }
+
+    public List<PlayerState> GetAllPlayers()
+    {
+        var players = new List<PlayerState>(computers);
+        players.Add(player);
+        return players;
     }
 
     public static void PlayRoundEndDialogue()
