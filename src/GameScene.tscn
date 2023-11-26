@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=23 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjdqiiodvrwgm" path="res://hand.tscn" id="3_cbrg8"]
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
 [ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="5_ox7ms"]
+[ext_resource type="Script" path="res://PlayerHands.cs" id="5_w7ly4"]
 [ext_resource type="PackedScene" uid="uid://c8klurdrb6qpt" path="res://opponent_stats.tscn" id="6_20vrj"]
 [ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
 [ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
@@ -79,6 +80,7 @@ anger = 96.0
 relationship = 0.0
 
 [node name="Player" type="Node2D" parent="."]
+script = ExtResource("5_w7ly4")
 
 [node name="PlayerState" type="Node" parent="Player" node_paths=PackedStringArray("handVisuals")]
 script = ExtResource("7_7hidr")

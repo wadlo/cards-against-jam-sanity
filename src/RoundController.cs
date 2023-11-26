@@ -84,6 +84,7 @@ public partial class RoundController : Node
         if (currentRoundState == RoundState.roundEndWinnerDialogue && DialogueState.IsFinished())
         {
             currentRoundState = RoundState.RoundEndOffendedDialogue;
+            DialogueState.SetDialogue(AngerBasedDialogue.GetDialog());
         }
         if (currentRoundState == RoundState.RoundEndOffendedDialogue && DialogueState.IsFinished())
         {

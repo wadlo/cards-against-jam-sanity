@@ -15,8 +15,27 @@ public class AngerBasedDialogue
         this.dialogue = dialogue;
     }
 
-    public void GetAllAngerBasedDialogues()
+    public static Dialogue GetDialog()
     {
+        int elfAnger = 0;
+        int dwarfAnger = 0;
+        int golemAnger = 0;
+        foreach (PlayerState playerState in RoundController.instance.computers)
+        {
+            if (playerState.player == Dialogue.players.Dwarf)
+            {
+                dwarfAnger = playerState.timesOffended;
+            }
+            if (playerState.player == Dialogue.players.Elf)
+            {
+                elfAnger = playerState.timesOffended;
+            }
+            if (playerState.player == Dialogue.players.Golem)
+            {
+                golemAnger = playerState.timesOffended;
+            }
+        }
+
         List<AngerBasedDialogue> angerBasedDialogues = new List<AngerBasedDialogue>()
         {
             // Dialogue option start
@@ -47,5 +66,25 @@ public class AngerBasedDialogue
                 )
             ),
         };
+
+        foreach (AngerBasedDialogue option in angerBasedDialogues)
+        {
+            if (
+                option.elfAnger == elfAnger
+                && option.dwarfAnger == dwarfAnger
+                && option.golemAnger == golemAnger
+            )
+            {
+                return option.dialogue;
+            }
+        }
+
+        return new Dialogue(
+            new List<DialogueLine>()
+            {
+                new DialogueLine(Dialogue.players.Golem, "Error Not Implemented"),
+                new DialogueLine(Dialogue.players.Golem, ":/")
+            }
+        );
     }
 }
