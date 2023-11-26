@@ -68,7 +68,6 @@ public partial class PlayerState : Node
             if (clickedCard.cardType == CardConfig.CardType.Honey)
             {
                 PickACardToSteal();
-                PlayOffendedDialogue();
             }
             else
             {
@@ -77,7 +76,11 @@ public partial class PlayerState : Node
         }
     }
 
-    public static void PickACardToSteal() { }
+    public static void PickACardToSteal()
+    {
+        CurrentInstructionManager.currentInstruction = "Select an opponent's card to steal";
+        RoundController.currentRoundState = RoundController.RoundState.selectACardToSteal;
+    }
 
     public static void PlayOffendedDialogue()
     {

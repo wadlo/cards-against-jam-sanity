@@ -54,6 +54,23 @@ public partial class RoundController : Node
     public override void _Process(double delta)
     {
         UpdateState();
+        SetCurrentInstruction();
+    }
+
+    public void SetCurrentInstruction()
+    {
+        if (currentRoundState == RoundState.selectACardToSteal)
+        {
+            CurrentInstructionManager.currentInstruction = "Select a card to steal";
+        }
+        else if (currentRoundState == RoundState.playersTurn)
+        {
+            CurrentInstructionManager.currentInstruction = "Click a card from your hand to play it";
+        }
+        else
+        {
+            CurrentInstructionManager.currentInstruction = "";
+        }
     }
 
     public void UpdateState()
@@ -62,6 +79,10 @@ public partial class RoundController : Node
         if (currentRoundState == RoundState.offendedDialogue && DialogueState.IsFinished())
         {
             RoundController.PlayComputers();
+        }
+        if (currentRoundState == RoundState.selectACardToSteal)
+        {
+            PlayerState.PlayOffendedDialogue();
         }
         if (currentRoundState == RoundState.roundEndWinnerDialogue && DialogueState.IsFinished())
         {
@@ -170,7 +191,7 @@ public partial class RoundController : Node
 
     public static void RotateHands()
     {
-        // SendMessage("Passed hands clockwise");
+        NotificationManager.ShowNotification("Passed hands clockwise");
         List<PlayerState> players = RoundController.instance.GetAllPlayers();
 
         Array<CardConfig> firstHand = new Array<CardConfig>(players[0].cardsInHand);

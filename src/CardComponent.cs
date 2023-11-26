@@ -12,6 +12,8 @@ public partial class CardComponent : Area2D
     float startRotation = -1.0f;
     bool hasSetStartRotation = false;
 
+    public PlayerState cardOwner;
+
     public static HashSet<CardComponent> hoveredCards = new HashSet<CardComponent>();
 
     // Called when the node enters the scene tree for the first time.
@@ -105,7 +107,23 @@ public partial class CardComponent : Area2D
             && IsMostHoveredCard()
         )
         {
-            GetParent().Call("clicked_card", config);
+            if (RoundController.currentRoundState == RoundController.RoundState.playersTurn)
+            {
+                GetParent().Call("clicked_card", config);
+            }
+            else if (
+                RoundController.currentRoundState == RoundController.RoundState.selectACardToSteal
+            )
+            {
+                if (cardOwner == RoundController.instance.player)
+                {
+                    NotificationManager.ShowNotification("You can't steal your own card!");
+                }
+                else if (cardOwner != null)
+                {
+                    // steal card here
+                }
+            }
         }
     }
 }
