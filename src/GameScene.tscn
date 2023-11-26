@@ -162,9 +162,10 @@ position = Vector2(18, -234)
 scale = Vector2(0.252917, 0.301948)
 texture = ExtResource("4_mdx6l")
 
-[node name="DwarfState" type="Node" parent="Dwarf"]
+[node name="DwarfState" type="Node" parent="Dwarf" node_paths=PackedStringArray("playOnTalk")]
 script = ExtResource("7_7hidr")
 name = "Dwarf"
+playOnTalk = NodePath("../../Sounds/DwarfSound")
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="DwarfCameraCenter" type="Node2D" parent="Dwarf"]
@@ -211,9 +212,10 @@ script = ExtResource("14_c860u")
 playerState = NodePath("ElfState")
 visuals = NodePath("ElfNeutral")
 
-[node name="ElfState" type="Node" parent="Elf"]
+[node name="ElfState" type="Node" parent="Elf" node_paths=PackedStringArray("playOnTalk")]
 script = ExtResource("7_7hidr")
 name = "Elf"
+playOnTalk = NodePath("../../Sounds/ElfSound")
 player = 1
 cardPackedScene = ExtResource("8_b63ea")
 
@@ -236,9 +238,10 @@ position = Vector2(-479, -123)
 scale = Vector2(0.394526, 0.394526)
 texture = ExtResource("15_4b5jj")
 
-[node name="ConstructState" type="Node" parent="Construct"]
+[node name="ConstructState" type="Node" parent="Construct" node_paths=PackedStringArray("playOnTalk")]
 script = ExtResource("7_7hidr")
 name = "Golem"
+playOnTalk = NodePath("../../Sounds/GolemSound")
 player = 2
 cardPackedScene = ExtResource("8_b63ea")
 
@@ -373,9 +376,12 @@ stream = SubResource("AudioStreamRandomizer_2lbtq")
 
 [node name="GolemSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = SubResource("AudioStreamRandomizer_kwrhm")
+volume_db = 12.308
 
 [node name="ElfSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = SubResource("AudioStreamRandomizer_eu3ru")
+volume_db = 12.0
 
 [node name="DwarfSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = SubResource("AudioStreamRandomizer_fjj0a")
+volume_db = 13.0

@@ -12,6 +12,9 @@ public partial class PlayerState : Node
     public string name;
 
     [Export]
+    private AudioStreamPlayer playOnTalk;
+
+    [Export]
     public Dialogue.players player;
 
     [Export]
@@ -58,6 +61,14 @@ public partial class PlayerState : Node
         }
 
         visualsRefreshed.Invoke();
+    }
+
+    public void OnStartTalking()
+    {
+        if (playOnTalk != null)
+        {
+            playOnTalk.Play();
+        }
     }
 
     public void PlayCard(CardConfig clickedCard, bool isAutomatic = false)
