@@ -64,19 +64,19 @@ opponent_name = "Ferdinand"
 relationship = 80.0
 
 [node name="OpponentStats2" parent="." instance=ExtResource("6_20vrj")]
-offset_left = 521.0
-offset_top = -202.0
-offset_right = 756.0
-offset_bottom = -92.0
+offset_left = 609.0
+offset_top = -234.0
+offset_right = 844.0
+offset_bottom = -124.0
 opponent_name = "Ralph"
 anger = 20.0
 relationship = 54.0
 
 [node name="OpponentStats3" parent="." instance=ExtResource("6_20vrj")]
-offset_left = -478.0
-offset_top = -347.0
-offset_right = -243.0
-offset_bottom = -237.0
+offset_left = -446.0
+offset_top = -363.0
+offset_right = -211.0
+offset_bottom = -253.0
 opponent_name = "Ruth"
 anger = 96.0
 relationship = 0.0
