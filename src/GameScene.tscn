@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=28 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://ccwrlx6alcuyo" path="res://Audio/card_3.wav" id="20_qflqd"]
 [ext_resource type="Texture2D" uid="uid://bm1q88pkvow8i" path="res://Graphics/cobblestone_flooring.png" id="21_ut3vf"]
 [ext_resource type="Script" path="res://Dialogue/DialogueState.cs" id="22_5hmf6"]
+[ext_resource type="Texture2D" uid="uid://2qhsfom78wdg" path="res://Graphics/JamJar.png" id="25_axn62"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwan6"]
 font_size = 29
@@ -337,3 +338,15 @@ z_index = -1000
 position = Vector2(-0.500149, -764.75)
 scale = Vector2(2.53809, 0.815918)
 texture = ExtResource("21_ut3vf")
+
+[node name="JamJar" type="Sprite2D" parent="."]
+position = Vector2(12.5, -74)
+texture = ExtResource("25_axn62")
+
+[node name="JamJar2" type="Sprite2D" parent="."]
+position = Vector2(34.5, -49)
+texture = ExtResource("25_axn62")
+
+[node name="JamJar3" type="Sprite2D" parent="."]
+position = Vector2(-24.5, -20)
+texture = ExtResource("25_axn62")
