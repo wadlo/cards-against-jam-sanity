@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=25 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://PlayedCards.cs" id="9_4cmec"]
 [ext_resource type="Script" path="res://HoveredDescription.cs" id="12_pfir4"]
 [ext_resource type="Texture2D" uid="uid://dk8l65l5asa0i" path="res://Graphics/WhiteSquare.png" id="13_b47gg"]
+[ext_resource type="Script" path="res://LeaveWhenAngry.cs" id="14_c860u"]
 [ext_resource type="Texture2D" uid="uid://cg4l0ocdqqu83" path="res://Graphics/Construct.png" id="15_4b5jj"]
 [ext_resource type="AudioStream" uid="uid://73oo6ajcjm2t" path="res://Audio/card_1.wav" id="18_5m8l2"]
 [ext_resource type="Script" path="res://Dialogue/DialogueBox.cs" id="18_5miqa"]
@@ -108,8 +109,11 @@ texture = ExtResource("2_8wo47")
 position = Vector2(-3, 166)
 player_state = NodePath("../../PlayerState")
 
-[node name="Dwarf" type="Node2D" parent="."]
+[node name="Dwarf" type="Node2D" parent="." node_paths=PackedStringArray("playerState", "visuals")]
 position = Vector2(0, -121)
+script = ExtResource("14_c860u")
+playerState = NodePath("DwarfState")
+visuals = NodePath("DwarfNeutral")
 
 [node name="DwarfNeutral" type="Sprite2D" parent="Dwarf"]
 z_index = -1
@@ -119,6 +123,7 @@ texture = ExtResource("4_mdx6l")
 
 [node name="DwarfState" type="Node" parent="Dwarf"]
 script = ExtResource("7_7hidr")
+name = "Dwarf"
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="DwarfCameraCenter" type="Node2D" parent="Dwarf"]
@@ -159,11 +164,15 @@ scale = Vector2(0.0234689, 0.0280856)
 script = ExtResource("9_4cmec")
 playerState = NodePath("../../Player/PlayerState")
 
-[node name="Elf" type="Node2D" parent="."]
+[node name="Elf" type="Node2D" parent="." node_paths=PackedStringArray("playerState", "visuals")]
 position = Vector2(68, 0)
+script = ExtResource("14_c860u")
+playerState = NodePath("ElfState")
+visuals = NodePath("ElfNeutral")
 
 [node name="ElfState" type="Node" parent="Elf"]
 script = ExtResource("7_7hidr")
+name = "Elf"
 player = 1
 cardPackedScene = ExtResource("8_b63ea")
 
@@ -175,8 +184,11 @@ texture = ExtResource("5_ox7ms")
 [node name="ElfCameraCenter" type="Node2D" parent="Elf"]
 position = Vector2(431, 5)
 
-[node name="Construct" type="Node2D" parent="."]
+[node name="Construct" type="Node2D" parent="." node_paths=PackedStringArray("playerState", "visuals")]
 position = Vector2(-117, 0)
+script = ExtResource("14_c860u")
+playerState = NodePath("ConstructState")
+visuals = NodePath("ConstructNeutral")
 
 [node name="ConstructNeutral" type="Sprite2D" parent="Construct"]
 position = Vector2(-479, -123)
@@ -185,6 +197,7 @@ texture = ExtResource("15_4b5jj")
 
 [node name="ConstructState" type="Node" parent="Construct"]
 script = ExtResource("7_7hidr")
+name = "Golem"
 player = 2
 cardPackedScene = ExtResource("8_b63ea")
 

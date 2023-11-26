@@ -15,17 +15,7 @@ public class OffendedDialogue
     {
         List<Dialogue> possibleDialogues = new List<Dialogue>()
         {
-            new Dialogue(
-                new List<DialogueLine>()
-                {
-                    new DialogueLine(
-                        Dialogue.players.Elf,
-                        "Those devs didn't finish the dialogue, did they?"
-                    ),
-                    new DialogueLine(Dialogue.players.Dwarf, "Obviously they didn't"),
-                    new DialogueLine(Dialogue.players.Golem, ":/")
-                }
-            )
+            new Dialogue(new List<DialogueLine>() { })
         };
 
         if (offendedPlayer == Dialogue.players.Dwarf)

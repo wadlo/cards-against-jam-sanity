@@ -61,6 +61,22 @@ public partial class DialogueState : Node
     {
         if (!IsFinished())
         {
+            bool characterStillExists = false;
+            foreach (PlayerState playerState in RoundController.instance.computers)
+            {
+                if (
+                    currentDialogue != null
+                    && currentDialogue.dialogueLines[currentDialogueIndex].character
+                        == playerState.player
+                )
+                {
+                    characterStillExists = true;
+                }
+            }
+            if (!characterStillExists)
+            {
+                return "...";
+            }
             return currentDialogue.dialogueLines[currentDialogueIndex].line;
         }
         return "";
@@ -111,5 +127,9 @@ public partial class DialogueState : Node
     {
         currentDialogue = dialogue;
         currentDialogueIndex = 0;
+        if (currentDialogue.dialogueLines.Count == 0)
+        {
+            currentDialogue = null;
+        }
     }
 }

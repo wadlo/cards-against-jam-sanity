@@ -9,6 +9,9 @@ public partial class PlayerState : Node
     public Array<CardConfig> cardsLaidDown = new Array<CardConfig>();
 
     [Export]
+    public string name;
+
+    [Export]
     public Dialogue.players player;
 
     [Export]
