@@ -29,7 +29,15 @@ public partial class RoundController : Node
         RoundEndOffendedDialogue,
     }
 
+    public static int currentRound = 1;
+
     public static RoundState currentRoundState = RoundState.playersTurn;
+
+    public static void Reset()
+    {
+        currentRound = 0;
+        currentRoundState = RoundState.playersTurn;
+    }
 
     public bool CanPlayerPlay()
     {
@@ -57,7 +65,11 @@ public partial class RoundController : Node
         }
         if (currentRoundState == RoundState.roundEndWinnerDialogue && DialogueState.IsFinished())
         {
-            currentRoundState = RoundState.playersTurn;
+            currentRoundState = RoundState.RoundEndOffendedDialogue;
+        }
+        if (currentRoundState == RoundState.RoundEndOffendedDialogue && DialogueState.IsFinished())
+        {
+            StartNewRound();
         }
     }
 
@@ -66,9 +78,7 @@ public partial class RoundController : Node
     public void StartNewRound()
     {
         Random random = new Random(new System.DateTime().Millisecond);
-        List<PlayerState> computersAndPlayer = new List<PlayerState>(computers);
-        computersAndPlayer.Add(player);
-        foreach (PlayerState computer in computersAndPlayer)
+        foreach (PlayerState computer in GetAllPlayers())
         {
             computer.cardsLaidDown = new Array<CardConfig>();
             computer.cardsInHand = new Array<CardConfig>();
@@ -78,6 +88,8 @@ public partial class RoundController : Node
             }
             computer.RefreshVisuals();
         }
+        currentRound += 1;
+        currentRoundState = RoundState.playersTurn;
     }
 
     public static void PlayComputers()
