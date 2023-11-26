@@ -1,16 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=22 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
 [ext_resource type="Texture2D" uid="uid://ck1shdalqe6x3" path="res://Graphics/Hand.png" id="2_8wo47"]
 [ext_resource type="Resource" uid="uid://dfvkwne4u7yg5" path="res://Cards/CardList.tres" id="2_rf72d"]
 [ext_resource type="PackedScene" uid="uid://bjdqiiodvrwgm" path="res://hand.tscn" id="3_cbrg8"]
-[ext_resource type="Resource" uid="uid://cx4sdt1jf4fgk" path="res://Cards/JamCard.tres" id="4_8hidv"]
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="4_mdx6l"]
 [ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="5_ox7ms"]
-[ext_resource type="Resource" uid="uid://d1drfc4ibxgbf" path="res://Cards/BreadCard.tres" id="5_x07ns"]
 [ext_resource type="PackedScene" uid="uid://c8klurdrb6qpt" path="res://opponent_stats.tscn" id="6_20vrj"]
-[ext_resource type="Resource" uid="uid://c5ym15fdxvte6" path="res://Cards/HoneyCard.tres" id="6_t5clk"]
 [ext_resource type="Script" path="res://CardGameLogic/PlayerState.cs" id="7_7hidr"]
 [ext_resource type="PackedScene" uid="uid://mrwpxwiudw6u" path="res://card.tscn" id="8_b63ea"]
 [ext_resource type="Script" path="res://PlayedCards.cs" id="9_4cmec"]
@@ -85,7 +82,8 @@ relationship = 0.0
 
 [node name="PlayerState" type="Node" parent="Player" node_paths=PackedStringArray("handVisuals")]
 script = ExtResource("7_7hidr")
-cardsInHand = Array[Resource]([ExtResource("4_8hidv"), ExtResource("5_x07ns"), ExtResource("6_t5clk"), ExtResource("6_t5clk"), ExtResource("4_8hidv")])
+player = 3
+cardsInHand = Array[Resource]([])
 handVisuals = NodePath("../PlayerHand/HandVisuals")
 cardPackedScene = ExtResource("8_b63ea")
 
@@ -163,6 +161,7 @@ position = Vector2(68, 0)
 
 [node name="ElfState" type="Node" parent="Elf"]
 script = ExtResource("7_7hidr")
+player = 1
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="ElfNeutral" type="Sprite2D" parent="Elf"]
@@ -183,6 +182,7 @@ texture = ExtResource("15_4b5jj")
 
 [node name="ConstructState" type="Node" parent="Construct"]
 script = ExtResource("7_7hidr")
+player = 2
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="ConstractCameraCenter" type="Node2D" parent="Construct"]

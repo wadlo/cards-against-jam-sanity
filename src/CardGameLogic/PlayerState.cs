@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 public partial class PlayerState : Node
 {
     public Array<CardConfig> cardsLaidDown = new Array<CardConfig>();
+
+    [Export]
     public Dialogue.players player;
 
     [Export]
@@ -63,12 +65,21 @@ public partial class PlayerState : Node
         RefreshVisuals();
         if (isAutomatic == false)
         {
-            // For now, we offend the elf every time for testing purposes
-            PlayOffendedDialogue();
+            if (clickedCard.cardType == CardConfig.CardType.Honey)
+            {
+                PickACardToSteal();
+                PlayOffendedDialogue();
+            }
+            else
+            {
+                RoundController.PlayComputers();
+            }
         }
     }
 
-    public void PlayOffendedDialogue()
+    public static void PickACardToSteal() { }
+
+    public static void PlayOffendedDialogue()
     {
         RoundController.currentRoundState = RoundController.RoundState.offendedDialogue;
 

@@ -24,6 +24,7 @@ public partial class RoundController : Node
     {
         playersTurn,
         enemyTurn,
+        selectACardToSteal,
         offendedDialogue,
         roundEndWinnerDialogue,
         RoundEndOffendedDialogue,
@@ -60,7 +61,6 @@ public partial class RoundController : Node
         GD.Print(currentRoundState);
         if (currentRoundState == RoundState.offendedDialogue && DialogueState.IsFinished())
         {
-            currentRoundState = RoundState.enemyTurn;
             RoundController.PlayComputers();
         }
         if (currentRoundState == RoundState.roundEndWinnerDialogue && DialogueState.IsFinished())
@@ -77,7 +77,7 @@ public partial class RoundController : Node
 
     public void StartNewRound()
     {
-        Random random = new Random(new System.DateTime().Millisecond);
+        Random random = new Random(DateTime.Now.Millisecond);
         foreach (PlayerState computer in GetAllPlayers())
         {
             computer.cardsLaidDown = new Array<CardConfig>();
@@ -92,12 +92,20 @@ public partial class RoundController : Node
         currentRoundState = RoundState.playersTurn;
     }
 
+    public static void RefreshAllVisuals()
+    {
+        foreach (PlayerState playerState in RoundController.instance.GetAllPlayers())
+        {
+            playerState.RefreshVisuals();
+        }
+    }
+
     public static void PlayComputers()
     {
-        Random random = new Random(new System.DateTime().Millisecond);
-        int index = 1;
-
         currentRoundState = RoundState.enemyTurn;
+
+        Random random = new Random(DateTime.Now.Millisecond);
+        int index = 1;
 
         foreach (PlayerState computer in instance.computers)
         {
@@ -107,14 +115,26 @@ public partial class RoundController : Node
             nextTimer.Timeout += () =>
             {
                 int cardIndex = computer.cardsInHand.Count;
-                computer.PlayCard(computer.cardsInHand[random.Next(cardIndex)], true);
+                CardConfig computerCardToPlay = null;
+                foreach (CardConfig cardConfig in computer.cardsInHand)
+                {
+                    if (cardConfig.cardType == CardConfig.CardType.Jelly)
+                    {
+                        computerCardToPlay = cardConfig;
+                    }
+                }
+                if (computerCardToPlay == null)
+                {
+                    computerCardToPlay = computer.cardsInHand[random.Next(cardIndex)];
+                }
+                computer.PlayCard(computerCardToPlay, true);
             };
             computer.AddChild(nextTimer);
             nextTimer.Start();
             index += 1;
         }
         Timer canPlayTimer = new Timer();
-        canPlayTimer.WaitTime = 1.0f * (index - 1);
+        canPlayTimer.WaitTime = 1.0f * (index) + 0.1f;
         canPlayTimer.OneShot = true;
         canPlayTimer.Timeout += () =>
         {
@@ -123,6 +143,10 @@ public partial class RoundController : Node
             if (RoundController.instance.player.cardsInHand.Count == 0)
             {
                 PlayRoundEndDialogue();
+            }
+            else
+            {
+                RoundController.RotateHands();
             }
             turnSfx?.Play(0);
         };
@@ -142,5 +166,19 @@ public partial class RoundController : Node
         currentRoundState = RoundState.roundEndWinnerDialogue;
         Dialogue dialogue = WinnerDialogue.GetWinnerDialogue();
         DialogueState.SetDialogue(dialogue);
+    }
+
+    public static void RotateHands()
+    {
+        // SendMessage("Passed hands clockwise");
+        List<PlayerState> players = RoundController.instance.GetAllPlayers();
+
+        Array<CardConfig> firstHand = new Array<CardConfig>(players[0].cardsInHand);
+        players[0].cardsInHand = new Array<CardConfig>(players[1].cardsInHand);
+        players[1].cardsInHand = new Array<CardConfig>(players[2].cardsInHand);
+        players[2].cardsInHand = new Array<CardConfig>(players[3].cardsInHand);
+        players[3].cardsInHand = new Array<CardConfig>(firstHand);
+
+        RefreshAllVisuals();
     }
 }

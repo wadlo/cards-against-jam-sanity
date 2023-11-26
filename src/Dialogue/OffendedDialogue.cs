@@ -89,7 +89,7 @@ public class OffendedDialogue
             }
         }
 
-        Random random = new Random(new System.DateTime().Millisecond);
+        Random random = new Random(DateTime.Now.Millisecond);
 
         int index = random.Next(possibleDialogues.Count);
         return possibleDialogues[index];

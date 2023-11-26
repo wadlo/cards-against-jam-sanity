@@ -29,34 +29,38 @@ public class WinnerDialogue
         var option1 = new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(Dialogue.players.Elf, "player won"),
-                new DialogueLine(Dialogue.players.Golem, "player?"),
-                new DialogueLine(Dialogue.players.Dwarf, "’playr.")
+                new DialogueLine(
+                    Dialogue.players.Elf,
+                    "Of course, why should we have expected any different?"
+                ),
+                new DialogueLine(Dialogue.players.Golem, "We Will Win The Next One!"),
+                new DialogueLine(Dialogue.players.Dwarf, "We’ll sure try."),
             }
         );
         var option2 = new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(Dialogue.players.Elf, "player won"),
-                new DialogueLine(Dialogue.players.Golem, "player?"),
-                new DialogueLine(Dialogue.players.Dwarf, "’playr."),
-                new DialogueLine(
-                    Dialogue.players.Dwarf,
-                    "He thinks it makes ‘im smarter. It doesn’t."
-                )
+                new DialogueLine(Dialogue.players.Dwarf, "I’m sicka losing my wife’s jam to you."),
+                new DialogueLine(Dialogue.players.Golem, "It Is Tiresome!"),
+                new DialogueLine(Dialogue.players.Elf, "You don’t deserve to taste another bite."),
+                new DialogueLine(Dialogue.players.Golem, "Agreed!"),
             }
         );
         var option3 = new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(Dialogue.players.Elf, "player won"),
-                new DialogueLine(Dialogue.players.Golem, "player?"),
-                new DialogueLine(Dialogue.players.Dwarf, "’playr.")
+                new DialogueLine(Dialogue.players.Golem, "Oh. This Is Going To Be Finished Fast."),
+                new DialogueLine(Dialogue.players.Dwarf, "We’ll get the next one, won’t we?"),
+                new DialogueLine(
+                    Dialogue.players.Elf,
+                    "Oh we will, even if I have to do it all myself."
+                ),
+                new DialogueLine(Dialogue.players.Dwarf, "Not a chance.")
             }
         );
 
         List<Dialogue> possibleDialogues = new List<Dialogue>() { option1, option2, option3 };
-        Random random = new Random(new System.DateTime().Millisecond);
+        Random random = new Random(DateTime.Now.Millisecond);
         return possibleDialogues[random.Next(possibleDialogues.Count)];
     }
 
@@ -65,45 +69,45 @@ public class WinnerDialogue
         var option1 = new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(Dialogue.players.Elf, "Ha! The sharper mind prevails, gentlemen."),
-                new DialogueLine(Dialogue.players.Golem, "Minds Can Be Sharp?"),
-                new DialogueLine(Dialogue.players.Dwarf, "’S an expression.")
+                new DialogueLine(Dialogue.players.Golem, "I Won!"),
+                new DialogueLine(Dialogue.players.Dwarf, "Mhm."),
+                new DialogueLine(Dialogue.players.Golem, "This Is The Beginning Of My Success!"),
+                new DialogueLine(
+                    Dialogue.players.Elf,
+                    "…cannot believe a hunk of clay did better than.."
+                )
             }
         );
         var option2 = new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(Dialogue.players.Elf, "My machinations laid undetected."),
-                new DialogueLine(Dialogue.players.Dwarf, "Get over yerself."),
-                new DialogueLine(Dialogue.players.Golem, "He Likes Using Big Words."),
+                new DialogueLine(Dialogue.players.Golem, "Oh. I Did Not Expect That."),
+                new DialogueLine(Dialogue.players.Dwarf, "You were playin’ to win, right?"),
+                new DialogueLine(Dialogue.players.Golem, "I Do Not Know. I Got Distracted."),
+                new DialogueLine(
+                    Dialogue.players.Elf,
+                    "You are a golem, designed for function and focus. What could have possibly distracted you?"
+                ),
+                new DialogueLine(Dialogue.players.Golem, "The Jam."),
                 new DialogueLine(
                     Dialogue.players.Dwarf,
-                    "He thinks it makes ‘im smarter. It doesn’t."
-                )
+                    "Well, you gotta admit that’s pretty distractin’."
+                ),
+                new DialogueLine(Dialogue.players.Elf, "…"),
             }
         );
         var option3 = new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(
-                    Dialogue.players.Elf,
-                    "Every closer to claiming the jams for myself. Of cours, yours couldn’t compare to my dear wife’s, ingredients gathered by myself in the far off woods of—"
-                ),
-                new DialogueLine(
-                    Dialogue.players.Dwarf,
-                    "At least my wife grows ‘er own ingredients."
-                ),
-                new DialogueLine(
-                    Dialogue.players.Golem,
-                    "My Wife Smashes The Fruits In Her Own Core, Her Jam Is The Best."
-                ),
-                new DialogueLine(Dialogue.players.Elf, "…"),
-                new DialogueLine(Dialogue.players.Dwarf, "…")
+                new DialogueLine(Dialogue.players.Golem, "That Was Fun!"),
+                new DialogueLine(Dialogue.players.Elf, "Of course you thought it was."),
+                new DialogueLine(Dialogue.players.Dwarf, "It’s a game."),
+                new DialogueLine(Dialogue.players.Golem, "It Is A Fun Game! Again!")
             }
         );
 
         List<Dialogue> possibleDialogues = new List<Dialogue>() { option1, option2, option3 };
-        Random random = new Random(new System.DateTime().Millisecond);
+        Random random = new Random(DateTime.Now.Millisecond);
         return possibleDialogues[random.Next(possibleDialogues.Count)];
     }
 
@@ -151,7 +155,7 @@ public class WinnerDialogue
         );
 
         List<Dialogue> possibleDialogues = new List<Dialogue>() { option1, option2, option3 };
-        Random random = new Random(new System.DateTime().Millisecond);
+        Random random = new Random(DateTime.Now.Millisecond);
         return possibleDialogues[random.Next(possibleDialogues.Count)];
     }
 
@@ -198,7 +202,7 @@ public class WinnerDialogue
         );
 
         List<Dialogue> possibleDialogues = new List<Dialogue>() { option1, option2, option3 };
-        Random random = new Random(new System.DateTime().Millisecond);
+        Random random = new Random(DateTime.Now.Millisecond);
         return possibleDialogues[random.Next(possibleDialogues.Count)];
     }
 }

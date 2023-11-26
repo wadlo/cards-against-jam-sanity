@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class Dialogue
 {
-    public enum players
+    public enum players : int
     {
         Dwarf,
         Elf,
