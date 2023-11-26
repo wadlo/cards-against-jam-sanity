@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=27 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cg4l0ocdqqu83" path="res://Graphics/Construct.png" id="15_4b5jj"]
 [ext_resource type="AudioStream" uid="uid://73oo6ajcjm2t" path="res://Audio/card_1.wav" id="18_5m8l2"]
 [ext_resource type="Script" path="res://Dialogue/DialogueBox.cs" id="18_5miqa"]
+[ext_resource type="Script" path="res://NotificationManager.cs" id="18_udelh"]
 [ext_resource type="AudioStream" uid="uid://dnjh0wpyshsaa" path="res://Audio/card_2.wav" id="19_hswaq"]
 [ext_resource type="AudioStream" uid="uid://ccwrlx6alcuyo" path="res://Audio/card_3.wav" id="20_qflqd"]
 [ext_resource type="Texture2D" uid="uid://bm1q88pkvow8i" path="res://Graphics/cobblestone_flooring.png" id="21_ut3vf"]
@@ -251,6 +252,33 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("12_pfir4")
+
+[node name="Notification" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.5
+offset_right = 211.5
+offset_bottom = 72.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.568627)
+script = ExtResource("18_udelh")
+
+[node name="Label" type="Label" parent="CanvasLayer/Notification"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -15.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test Notification"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Dialogue" type="ColorRect" parent="CanvasLayer"]
 self_modulate = Color(0, 0, 0, 0.556863)
