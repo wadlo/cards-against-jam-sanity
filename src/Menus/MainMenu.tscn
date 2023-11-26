@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="6_gj5k6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ue42"]
-line_spacing = -5.0
+font_size = 72
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 4
@@ -25,10 +25,18 @@ grow_vertical = 2
 script = ExtResource("1_0ynec")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_left = 177.0
-offset_right = 328.0
-offset_bottom = 183.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -515.0
+offset_top = -199.0
+offset_right = 516.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -41,56 +49,56 @@ value = 100.0
 [node name="SampleSound" type="AudioStreamPlayer2D" parent="CenterContainer/HBoxContainer"]
 stream = ExtResource("2_sbh6h")
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer/HBoxContainer"]
+[node name="GridContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 36
 
 [node name="PlayButton" type="Button" parent="CenterContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Play the game"
+theme_override_font_sizes/font_size = 64
+text = "Play"
 
 [node name="SoundButton" type="Button" parent="CenterContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Sound Volume"
+theme_override_font_sizes/font_size = 64
+text = "Volume"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Exit"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(164, 93)
-zoom = Vector2(3.5, 3.5)
 
 [node name="CobblestoneFlooring" type="Sprite2D" parent="."]
 modulate = Color(0.223529, 0.27451, 0.282353, 0.258824)
 z_index = -1000
-position = Vector2(150, 54)
-scale = Vector2(0.577148, 0.533203)
+position = Vector2(574.75, 446.409)
+scale = Vector2(1.40674, 1.29963)
 texture = ExtResource("3_sx1no")
 
-[node name="ElfNeutral" type="Sprite2D" parent="."]
-position = Vector2(145, 90.1031)
-scale = Vector2(0.069842, 0.069842)
-texture = ExtResource("4_v813u")
-
 [node name="Construct" type="Sprite2D" parent="."]
-position = Vector2(53, 80.1031)
-scale = Vector2(0.0784672, 0.0784672)
+position = Vector2(387.5, 271.952)
+scale = Vector2(0.305657, 0.305657)
 texture = ExtResource("5_1onq8")
+
+[node name="ElfNeutral" type="Sprite2D" parent="."]
+position = Vector2(784.5, 270.952)
+scale = Vector2(0.288438, 0.288438)
+texture = ExtResource("4_v813u")
 
 [node name="DwarfNeutral" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(102, 79.1031)
-scale = Vector2(0.0613045, 0.0613045)
+position = Vector2(583.5, 249.952)
+scale = Vector2(0.267048, 0.267048)
 texture = ExtResource("6_gj5k6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 97.0
-offset_right = 241.0
-offset_bottom = 149.0
+offset_left = 359.5
+offset_top = 255.952
+offset_right = 925.5
+offset_bottom = 459.952
 text = "Cards against
- Jam Sanity"
+Jam Sanity"
 label_settings = SubResource("LabelSettings_3ue42")
 
 [connection signal="value_changed" from="CenterContainer/HBoxContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
