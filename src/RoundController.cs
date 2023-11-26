@@ -25,7 +25,8 @@ public partial class RoundController : Node
         playersTurn,
         enemyTurn,
         offendedDialogue,
-        roundEndDialogue,
+        roundEndWinnerDialogue,
+        RoundEndOffendedDialogue,
     }
 
     public static RoundState currentRoundState = RoundState.playersTurn;
@@ -53,6 +54,10 @@ public partial class RoundController : Node
         {
             currentRoundState = RoundState.enemyTurn;
             RoundController.PlayComputers();
+        }
+        if (currentRoundState == RoundState.roundEndWinnerDialogue && DialogueState.IsFinished())
+        {
+            currentRoundState = RoundState.playersTurn;
         }
     }
 
@@ -102,9 +107,21 @@ public partial class RoundController : Node
         canPlayTimer.Timeout += () =>
         {
             currentRoundState = RoundState.playersTurn;
+
+            if (RoundController.instance.player.cardsInHand.Count == 0)
+            {
+                PlayRoundEndDialogue();
+            }
             turnSfx.Play(0);
         };
         instance.computers[1].AddChild(canPlayTimer);
         canPlayTimer.Start();
+    }
+
+    public static void PlayRoundEndDialogue()
+    {
+        currentRoundState = RoundState.roundEndWinnerDialogue;
+        Dialogue dialogue = WinnerDialogue.GetWinnerDialogue();
+        DialogueState.SetDialogue(dialogue);
     }
 }

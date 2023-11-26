@@ -11,17 +11,15 @@ public class WinnerDialogue
         dialoguePossibilities = _dialogue;
     }
 
-    public void Test()
+    public static Dialogue GetWinnerDialogue()
     {
-        var option1 = new Dialogue(
+        return new Dialogue(
             new List<DialogueLine>()
             {
-                new DialogueLine(Dialogue.players.Dwarf, "Hrm I'm a dwarf"),
+                new DialogueLine(Dialogue.players.Dwarf, "This is an example winning dialogue"),
                 new DialogueLine(Dialogue.players.Elf, "ur an ugly dwarf"),
                 new DialogueLine(Dialogue.players.Golem, "beep boop beep")
             }
         );
-
-        new WinnerDialogue(Dialogue.players.Dwarf, new List<Dialogue>() { option1, option1 });
     }
 }
