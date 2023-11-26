@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=34 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://bm1q88pkvow8i" path="res://Graphics/cobblestone_flooring.png" id="21_ut3vf"]
 [ext_resource type="Script" path="res://Dialogue/DialogueState.cs" id="22_5hmf6"]
 [ext_resource type="Texture2D" uid="uid://2qhsfom78wdg" path="res://Graphics/JamJar.png" id="25_axn62"]
+[ext_resource type="AudioStream" uid="uid://un6b5lxfu3ue" path="res://Audio/Golem.mp3" id="26_ybxcs"]
+[ext_resource type="AudioStream" uid="uid://m3fosa0ln064" path="res://Audio/Elf.mp3" id="27_3bhtj"]
+[ext_resource type="AudioStream" uid="uid://c53ps8qr2mpvy" path="res://Audio/Dwarf.mp3" id="28_4d1rm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwan6"]
 font_size = 29
@@ -37,6 +40,21 @@ stream_1/stream = ExtResource("19_hswaq")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("20_qflqd")
 stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kwrhm"]
+streams_count = 1
+stream_0/stream = ExtResource("26_ybxcs")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_eu3ru"]
+streams_count = 1
+stream_0/stream = ExtResource("27_3bhtj")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fjj0a"]
+streams_count = 1
+stream_0/stream = ExtResource("28_4d1rm")
+stream_0/weight = 1.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -346,9 +364,18 @@ texture = ExtResource("25_axn62")
 position = Vector2(-24.5, -20)
 texture = ExtResource("25_axn62")
 
-[node name="Node" type="Node" parent="."]
-
-[node name="CardSFX" type="AudioStreamPlayer" parent="Node"]
+[node name="CardSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_2lbtq")
 
-[node name="TurnSFX" type="AudioStreamPlayer" parent="Node"]
+[node name="TurnSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="GolemSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = SubResource("AudioStreamRandomizer_kwrhm")
+
+[node name="ElfSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = SubResource("AudioStreamRandomizer_eu3ru")
+
+[node name="DwarfSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = SubResource("AudioStreamRandomizer_fjj0a")
