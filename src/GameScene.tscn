@@ -86,7 +86,6 @@ script = ExtResource("5_w7ly4")
 
 [node name="PlayerState" type="Node" parent="Player" node_paths=PackedStringArray("handVisuals")]
 script = ExtResource("7_7hidr")
-player = 3
 cardsInHand = Array[Resource]([])
 handVisuals = NodePath("../PlayerHand/HandVisuals")
 cardPackedScene = ExtResource("8_b63ea")
@@ -123,7 +122,6 @@ texture = ExtResource("4_mdx6l")
 
 [node name="DwarfState" type="Node" parent="Dwarf"]
 script = ExtResource("7_7hidr")
-name = "Dwarf"
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="DwarfCameraCenter" type="Node2D" parent="Dwarf"]
@@ -172,8 +170,6 @@ visuals = NodePath("ElfNeutral")
 
 [node name="ElfState" type="Node" parent="Elf"]
 script = ExtResource("7_7hidr")
-name = "Elf"
-player = 1
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="ElfNeutral" type="Sprite2D" parent="Elf"]
@@ -197,8 +193,6 @@ texture = ExtResource("15_4b5jj")
 
 [node name="ConstructState" type="Node" parent="Construct"]
 script = ExtResource("7_7hidr")
-name = "Golem"
-player = 2
 cardPackedScene = ExtResource("8_b63ea")
 
 [node name="ConstractCameraCenter" type="Node2D" parent="Construct"]
