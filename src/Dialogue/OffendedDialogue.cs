@@ -27,9 +27,10 @@ public class OffendedDialogue
                 }
             )
         };
+
         if (offendedPlayer == Dialogue.players.Elf)
         {
-            if (angerLevel == 0)
+            if (angerLevel == 1)
             {
                 possibleDialogues = new List<Dialogue>()
                 {
@@ -60,7 +61,7 @@ public class OffendedDialogue
                 };
             }
 
-            if (angerLevel == 1)
+            if (angerLevel == 2)
             {
                 possibleDialogues = new List<Dialogue>()
                 {
@@ -82,6 +83,37 @@ public class OffendedDialogue
                             new DialogueLine(
                                 Dialogue.players.Elf,
                                 "Really testing my patience, aren’t you?"
+                            ),
+                        }
+                    ),
+                };
+            }
+
+            if (angerLevel == 3)
+            {
+                possibleDialogues = new List<Dialogue>()
+                {
+                    new Dialogue(
+                        new List<DialogueLine>()
+                        {
+                            new DialogueLine(
+                                Dialogue.players.Elf,
+                                "You are living proof that mankind is selfish."
+                            ),
+                        }
+                    ),
+                    new Dialogue(
+                        new List<DialogueLine>()
+                        {
+                            new DialogueLine(Dialogue.players.Elf, "Don’t touch that!"),
+                        }
+                    ),
+                    new Dialogue(
+                        new List<DialogueLine>()
+                        {
+                            new DialogueLine(
+                                Dialogue.players.Elf,
+                                "Really? You are a foul creature."
                             ),
                         }
                     ),

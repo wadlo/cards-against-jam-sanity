@@ -122,6 +122,11 @@ public partial class CardComponent : Area2D
                 else if (cardOwner != null)
                 {
                     // steal card here
+                    RoundController.instance.player.cardsLaidDown.Add(config);
+                    cardOwner.cardsLaidDown.Remove(config);
+                    RoundController.RefreshAllVisuals();
+                    cardOwner.timesOffended += 1;
+                    PlayerState.PlayOffendedDialogue(cardOwner.player, cardOwner.timesOffended);
                 }
             }
         }

@@ -15,7 +15,7 @@ public partial class RoundController : Node
 
     [Export]
     public CardListConfig cardList;
-    public int CARDS_IN_HAND = 5;
+    public static int CARDS_IN_HAND = 5;
 
     [Export]
     public static AudioStreamPlayer turnSfx;
@@ -80,10 +80,7 @@ public partial class RoundController : Node
         {
             RoundController.PlayComputers();
         }
-        if (currentRoundState == RoundState.selectACardToSteal)
-        {
-            PlayerState.PlayOffendedDialogue();
-        }
+        if (currentRoundState == RoundState.selectACardToSteal) { }
         if (currentRoundState == RoundState.roundEndWinnerDialogue && DialogueState.IsFinished())
         {
             currentRoundState = RoundState.RoundEndOffendedDialogue;

@@ -78,17 +78,22 @@ public partial class PlayerState : Node
 
     public static void PickACardToSteal()
     {
-        CurrentInstructionManager.currentInstruction = "Select an opponent's card to steal";
         RoundController.currentRoundState = RoundController.RoundState.selectACardToSteal;
+        if (RoundController.instance.player.cardsInHand.Count == RoundController.CARDS_IN_HAND - 1)
+        {
+            RoundController.currentRoundState = RoundController.RoundState.offendedDialogue;
+            RoundController.RefreshAllVisuals();
+            NotificationManager.ShowNotification("There are no cards to steal");
+        }
     }
 
-    public static void PlayOffendedDialogue()
+    public static void PlayOffendedDialogue(Dialogue.players offendedPlayer, int offendedLevel)
     {
         RoundController.currentRoundState = RoundController.RoundState.offendedDialogue;
 
         Dialogue dialogue = OffendedDialogue.GetRandomDialogueForOffendedPlayer(
-            Dialogue.players.Golem,
-            1
+            offendedPlayer,
+            offendedLevel
         );
         DialogueState.SetDialogue(dialogue);
     }
