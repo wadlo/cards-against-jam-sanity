@@ -107,16 +107,37 @@ public partial class RoundController : Node
         return new Dialogue(
             new List<DialogueLine>()
             {
+                new DialogueLine(Dialogue.players.Elf, "Ah, and Human arrives."),
                 new DialogueLine(
-                    Dialogue.players.Dwarf,
-                    "Today I'll be betting me wife's famous jam"
+                    Dialogue.players.Golem,
+                    "Hello, Human. You Brought Your Wife’s Jam!"
                 ),
+                new DialogueLine(Dialogue.players.Dwarf, "He always brings the jam, jus’ like us."),
                 new DialogueLine(
                     Dialogue.players.Elf,
-                    "Hah! I too have brought my wife's jam, but hers is superior to yours"
+                    "As if he doesn’t return home with enough each night. Human, are you intending to make this evening enjoyable or strenuous?"
                 ),
-                new DialogueLine(Dialogue.players.Golem, "My wife makes jam too xD"),
-                new DialogueLine(Dialogue.players.Dwarf, "Winner takes all!"),
+                new DialogueLine(
+                    Dialogue.players.Dwarf,
+                    "You keep askin’ that question like yer gonna get a different answer."
+                ),
+                new DialogueLine(
+                    Dialogue.players.Golem,
+                    "Human Wins A Lot. I Never Get To Try His Jam."
+                ),
+                new DialogueLine(Dialogue.players.Dwarf, "Then let’s change that."),
+                new DialogueLine(
+                    Dialogue.players.Elf,
+                    "For once, I agree with you. Play nice, Human, would you?"
+                ),
+                new DialogueLine(Dialogue.players.Golem, "I Play Nicely!"),
+                new DialogueLine(Dialogue.players.Dwarf, "’S an expression."),
+                new DialogueLine(
+                    Dialogue.players.Elf,
+                    "Alright then, gentlemen. Good luck. You’ll need it."
+                ),
+                new DialogueLine(Dialogue.players.Dwarf, "Jus’ deal the cards. Winner takes all."),
+                new DialogueLine(Dialogue.players.Golem, "All The Jam! :D"),
             }
         );
     }
