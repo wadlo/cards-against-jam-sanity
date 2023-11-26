@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx2ww3t4qn3pa"]
+
+[ext_resource type="AudioStream" uid="uid://bd74kx6oqyse2" path="res://Audio/music/Knighty_Knight.mp3" id="1_pvtwn"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_pvtwn")
+autoplay = true
