@@ -313,11 +313,6 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 label_settings = SubResource("LabelSettings_cwan6")
 autowrap_mode = 3
 
-[node name="CardSFX" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_2lbtq")
-
-[node name="TurnSFX" type="AudioStreamPlayer" parent="."]
-
 [node name="DialogueState" type="Node" parent="." node_paths=PackedStringArray("dwarfCameraCenter", "elfCameraCenter", "golemCameraCenter", "camera")]
 script = ExtResource("22_5hmf6")
 dwarfCameraCenter = NodePath("../Dwarf/DwarfCameraCenter")
@@ -350,3 +345,10 @@ texture = ExtResource("25_axn62")
 [node name="JamJar3" type="Sprite2D" parent="."]
 position = Vector2(-24.5, -20)
 texture = ExtResource("25_axn62")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="CardSFX" type="AudioStreamPlayer" parent="Node"]
+stream = SubResource("AudioStreamRandomizer_2lbtq")
+
+[node name="TurnSFX" type="AudioStreamPlayer" parent="Node"]
