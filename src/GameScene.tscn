@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b750hr51q1ltb"]
+[gd_scene load_steps=24 format=3 uid="uid://b750hr51q1ltb"]
 
 [ext_resource type="Texture2D" uid="uid://de4yt00hg2ffj" path="res://Graphics/Table.png" id="1_3banv"]
 [ext_resource type="Script" path="res://RoundController.cs" id="1_cmhrf"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Dialogue/DialogueBox.cs" id="18_5miqa"]
 [ext_resource type="AudioStream" uid="uid://dnjh0wpyshsaa" path="res://Audio/card_2.wav" id="19_hswaq"]
 [ext_resource type="AudioStream" uid="uid://ccwrlx6alcuyo" path="res://Audio/card_3.wav" id="20_qflqd"]
+[ext_resource type="Texture2D" uid="uid://bm1q88pkvow8i" path="res://Graphics/cobblestone_flooring.png" id="21_ut3vf"]
 [ext_resource type="Script" path="res://Dialogue/DialogueState.cs" id="22_5hmf6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwan6"]
@@ -260,3 +261,17 @@ dwarfCameraCenter = NodePath("../Dwarf/DwarfCameraCenter")
 elfCameraCenter = NodePath("../Elf/ElfCameraCenter")
 golemCameraCenter = NodePath("../Construct/ConstractCameraCenter")
 camera = NodePath("../Camera2D")
+
+[node name="CobblestoneFlooring" type="Sprite2D" parent="."]
+modulate = Color(0.270588, 0.270588, 0.270588, 0.207843)
+z_index = -1000
+position = Vector2(39.0001, 329.125)
+scale = Vector2(2.70313, 1.31665)
+texture = ExtResource("21_ut3vf")
+
+[node name="CobblestoneFlooring2" type="Sprite2D" parent="."]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.494118)
+z_index = -1000
+position = Vector2(-0.500149, -764.75)
+scale = Vector2(2.53809, 0.815918)
+texture = ExtResource("21_ut3vf")

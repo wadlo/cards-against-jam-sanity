@@ -23,4 +23,4 @@ project/assembly_name="Cards Against Jam Sanity"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.266667, 0.364706, 0.47451, 1)
+environment/defaults/default_clear_color=Color(0.301961, 0.372549, 0.380392, 1)
