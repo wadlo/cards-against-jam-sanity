@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://lg0ur6mspegy"]
+[gd_scene load_steps=8 format=3 uid="uid://lg0ur6mspegy"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.cs" id="1_0ynec"]
 [ext_resource type="AudioStream" uid="uid://drffc3f35fc86" path="res://Menus/blip.mp3" id="2_sbh6h"]
+[ext_resource type="Texture2D" uid="uid://bm1q88pkvow8i" path="res://Graphics/cobblestone_flooring.png" id="3_sx1no"]
+[ext_resource type="Texture2D" uid="uid://cxe2yn738oqbt" path="res://Graphics/ElfNeutral.png" id="4_v813u"]
+[ext_resource type="Texture2D" uid="uid://cg4l0ocdqqu83" path="res://Graphics/Construct.png" id="5_1onq8"]
+[ext_resource type="Texture2D" uid="uid://cew85a1oysy5d" path="res://Graphics/DwarfNeutral.png" id="6_gj5k6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ue42"]
+line_spacing = -5.0
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.670588)
+shadow_offset = Vector2(1, 2.87)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,6 +26,7 @@ script = ExtResource("1_0ynec")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
+offset_left = 177.0
 offset_right = 328.0
 offset_bottom = 183.0
 
@@ -46,6 +59,39 @@ text = "Exit"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(164, 93)
 zoom = Vector2(3.5, 3.5)
+
+[node name="CobblestoneFlooring" type="Sprite2D" parent="."]
+modulate = Color(0.223529, 0.27451, 0.282353, 0.258824)
+z_index = -1000
+position = Vector2(150, 54)
+scale = Vector2(0.577148, 0.533203)
+texture = ExtResource("3_sx1no")
+
+[node name="ElfNeutral" type="Sprite2D" parent="."]
+position = Vector2(145, 90.1031)
+scale = Vector2(0.069842, 0.069842)
+texture = ExtResource("4_v813u")
+
+[node name="Construct" type="Sprite2D" parent="."]
+position = Vector2(53, 80.1031)
+scale = Vector2(0.0784672, 0.0784672)
+texture = ExtResource("5_1onq8")
+
+[node name="DwarfNeutral" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(102, 79.1031)
+scale = Vector2(0.0613045, 0.0613045)
+texture = ExtResource("6_gj5k6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 97.0
+offset_right = 241.0
+offset_bottom = 149.0
+text = "Cards against
+ Jam Sanity"
+label_settings = SubResource("LabelSettings_3ue42")
 
 [connection signal="value_changed" from="CenterContainer/HBoxContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/GridContainer/PlayButton" to="." method="_on_play_button_pressed"]
